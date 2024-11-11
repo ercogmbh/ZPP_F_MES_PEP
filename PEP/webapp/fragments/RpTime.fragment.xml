@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:uc="sap.ui.unified.calendar" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>rptime}" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm id="ts_sf_form" layout="ResponsiveGridLayout" editable="true" width="500px">
+				<f:content>
+					<VBox>
+						<Label text="{i18n>timeframe}" visible="false"></Label>
+						<DatePicker id="dp_begda" placeholder="{i18n>from}" tooltip="{i18n>ttbegda}" visible="false"></DatePicker>
+						<DatePicker id="dp_endda" placeholder="{i18n>to}" tooltip="{i18n>ttendda}" visible="false"></DatePicker>
+						<Label text="{i18n>employeetext}"></Label>
+						<MultiComboBox id="mcb_employees" selectionChange="onTsEmpChange" selectionFinish="handleSelectionFinish"
+							items="{ path: 'oLocalEmployeeModel>/employees' }">
+							<core:Item key="{oLocalEmployeeModel>EmpId}" text="{oLocalEmployeeModel>EmpName}"/></MultiComboBox>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_start_rptime" text="{i18n>rptime}" tooltip="{i18n>rptime}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseRpTime" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

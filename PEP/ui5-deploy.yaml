@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: mind2pep_planner
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: S41
+          url: http://saps41.erco.com:8000/
+          client: '110'
+        app:
+          name: ZHR_PEP_PLAN
+          description: PE-Planung
+          package: Z_FIORI
+          transport: S41K900165
+        exclude:
+          - /test/

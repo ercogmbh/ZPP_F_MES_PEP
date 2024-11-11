@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog contentWidth="100%"  contentHeight="600px" draggable="true" resizable="true">
+		<customHeader>
+			<Toolbar>
+				<Text text="{i18n>select-doc}"/>
+				<Select items="{path: 'roster>/docTypeSet', filters: [{path: 'Ess', operator: 'EQ', value1: false} ]}" forceSelection="false" width="268px"
+					selectedKey="{Selected>/DocId}" change="onDocTypeChange">
+					<core:Item key="{roster>DocId}" text="{roster>DocName}"/>
+				</Select>
+				<Text text="{i18n>from}:"/>
+				<DatePicker displayFormat="short" width="130px" dateValue="{Selected>/Begda}"/>
+				<Text text="{i18n>to}:"/>
+				<DatePicker displayFormat="short" width="130px" dateValue="{Selected>/Endda}"/>
+				<Text text="{i18n>employee}" visible="{Selected>/Ess}"/>
+				<!--<Select items="{roster>/employeeSearchhelpSet}" forceSelection="false" width="268px" selectedKey="{Selected>/Pernr}">-->
+				<!--	<core:Item key="{roster>Pernr}" text="{roster>Vorna} {roster>Nachn}"/>-->
+				<!--</Select>-->
+				<Input showSuggestion="true" suggest="onSuggest" suggestionItems="{roster>/employeeSearchhelpSet}" selectedKey="{Selected>/Pernr}" visible="{Selected>/Ess}"
+					width="268px">
+					<suggestionItems>
+						<core:Item key="{roster>Pernr}" text="{roster>Pernr} - {roster>Vorna} {roster>Nachn}"/>
+					</suggestionItems>
+				</Input>
+				<Button icon="sap-icon://search" text="{i18n>search}" press="onPDFSearchPress"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<PDFViewer source="{Selected>/PDF}" visible="{= ${Selected>/PDFVisible} || false}" height="600px"
+				errorPlaceholderMessage="{i18n>error_no_pdf}" showDownloadButton="false"/>
+		</content>
+		<buttons>
+			<Button text="{i18n>close}" press="onPDFExportClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

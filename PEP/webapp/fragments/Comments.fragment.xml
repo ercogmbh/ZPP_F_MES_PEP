@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog id="dlg_comment" title="{i18n>commentfor}" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm title="" editable="true" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label id="lbl_comment" labelFor="ta_com_newCom" text="{i18n>comment}"/>
+					<TextArea id="ta_com_newCom" value="{CommentDate}" showExceededText="true" maxLength="255" rows="6" width="100%"
+						liveChange="handleLiveChange" valueLiveUpdate="true"/>
+					<Button text="{i18n>save}" press="onSaveComment"/>
+					<Button text="{i18n>delete}" press="onDeleteComment"/>
+					<Label id="lbl_additionalInfo" labelFor="ta_additionalInfo" text="{i18n>additionalInformation}" visible="false"/>
+					<TextArea id="ta_additionalInfo" rows="6" width="100%" visible="false" editable="false"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="onCommentDialogClose" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,144 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>overtimecreate}">
+		<content>
+			<f:Form editable="true" id="ld_form">
+				<f:layout>
+					<f:ResponsiveGridLayout/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement>
+								<f:fields>
+									<Text text="{i18n>newovertime}"></Text>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement>
+								<f:fields>
+									<Select id="ld_select_emp" change="onEmployeeOvertimeSelect" tooltip="{i18n>ttselectemp}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</Select>
+									<DatePicker id="ld_dp_begda_overtime" placeholder="{i18n>from}" change="onOvertimeInputChange" tooltip="{i18n>ttbegda}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</DatePicker>
+									<DatePicker id="ld_dp_endda_overtime" placeholder="{i18n>to}" change="onOvertimeInputChange" tooltip="{i18n>ttendda}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</DatePicker>
+									<Select id="ld_select_subty_overtime" tooltip="{i18n>ttselectsubtyovertime}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</Select>
+									<Input id="ld_inp_amount_overtime" type="Number" placeholder="{i18n>placeholderamount}" tooltip="{i18n>ttamount}" change="onInputChange">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</Input>
+									<TimePicker id="ld_tp_beguz_overtime" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timefrom}" tooltip="{i18n>tttimefrom}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</TimePicker>
+									<TimePicker id="ld_tp_enduz_overtime" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timeto}" tooltip="{i18n>tttimeto}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</TimePicker>
+									<Select id="ld_select_versl_overtime" tooltip="{i18n>ttversl}">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</Select>
+									<Select id="ld_select_comment_overtime" tooltip="{i18n>comment}" change="onOvertimeDirty">
+										<layoutData>
+											<l:GridData span="XL3 L3 M3 S12"/>
+										</layoutData>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement>
+								<Button text="{i18n>saveovertime}" press="onSaveOvertime" tooltip="{i18n>ttsaveovertime}">
+									<layoutData>
+										<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+									</layoutData>
+								</Button>
+							</f:FormElement>
+							<f:FormElement>
+								<Text text="{i18n>overtimeoverview}"></Text>
+							</f:FormElement>
+							<f:FormElement>
+								<t:Table id="ld_tbl_overtimeoverview" selectionMode="Single" selectionBehavior="Row" visibleRowCount="7" alternateRowColors="true"
+									width="auto">
+									<t:layoutData>
+										<l:GridData span="XL12 L12 M12 S12"/>
+									</t:layoutData>
+									<t:columns>
+										<t:Column>
+											<Label text="{i18n>subtyovertime}" tooltip="{i18n>ttsubtyovertimetable}"/>
+											<t:template>
+												<Text text="{SubtyText}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+										<t:Column>
+											<Label text="{i18n>verslovertime}" tooltip="{i18n>ttverslovertimetable}"/>
+											<t:template>
+												<Text text="{VerslText}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+										<t:Column>
+											<Label text="{i18n>begda}" tooltip="{i18n>ttbegdatable}"/>
+											<t:template>
+												<Text text="{Begda}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+										<t:Column>
+											<Label text="{i18n>endda}" tooltip="{i18n>ttenddatable}"/>
+											<t:template>
+												<Text text="{Endda}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+										<t:Column>
+											<Label text="{i18n>starttime}" tooltip="{i18n>tttimefromtable}"/>
+											<t:template>
+												<Text text="{StartTime}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+										<t:Column>
+											<Label text="{i18n>endtime}" tooltip="{i18n>tttimetotable}"/>
+											<t:template>
+												<Text text="{EndTime}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+										<t:Column>
+											<Label text="{i18n>amount}" tooltip="{i18n>ttamounttable}"/>
+											<t:template>
+												<Text text="{Amount}" wrapping="false"/>
+											</t:template>
+										</t:Column>
+									</t:columns>
+								</t:Table>
+							</f:FormElement>
+							<f:FormElement>
+								<Button text="{i18n>cancelovertime}" press="onCancelOvertime" tooltip="{i18n>ttcancelovertime}">
+									<layoutData>
+										<l:GridData span="XL2 L2 M3 S12"/>
+									</layoutData>
+								</Button>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseOvertimeDialog" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

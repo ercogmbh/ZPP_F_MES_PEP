@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>legend}" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm id="FormLegend" layout="ResponsiveGridLayout" editable="false"></f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="closeLegendDialog" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

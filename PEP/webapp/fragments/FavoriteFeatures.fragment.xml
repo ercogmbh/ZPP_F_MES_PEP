@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:sem="sap.m.semantic" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>favfeattitle}" id="dialog_favfeat" draggable="true" resizable="true" contentWidth="50rem"
+		afterClose="destroyFavoriteFeaturesDialog">
+		<content>
+			<List id="listFavFeats" items="{/favFeatureSet}">
+				<items>
+					<CustomListItem>
+						<HBox class="sapUiSmallMarginEnd" alignItems="Center" justifyContent="SpaceBetween">
+							<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+								<Label text="{FeatureName}"/>
+							</VBox>
+							<CheckBox selected="{IsFavorite}" select="onChangeFavorite"></CheckBox>
+							<!--Icon size="2rem" hoverColor="Default" press="onIconPress" src="{= ${IsActive} ? 'sap-icon://accept' : 'sap-icon://add' }"></core:Icon>-->
+						</HBox>
+					</CustomListItem>
+					<!--<StandardListItem title="{FeatureKey}" type="Active" press="destroyFavoriteFeaturesDialog"></StandardListItem>-->
+				</items>
+			</List>
+		</content>
+		<beginButton>
+			<Button id="btn_ff_save" text="{i18n>save}" type="Accept" press="onSaveFavorites" tooltip="{i18n>ttclose}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseDialogByButton" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

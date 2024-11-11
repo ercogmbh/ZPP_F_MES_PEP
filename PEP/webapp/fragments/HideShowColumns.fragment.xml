@@ -1,0 +1,68 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>hide}" contentWidth="400px" contentHeight="500px" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm id="sf_buildVariant" layout="ResponsiveGridLayout" visible="false" editable="true" labelSpanL="1" labelSpanXL="1"
+				labelSpanM="2" labelSpanS="12">
+				<Text text="{i18n>newvariant}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Text>
+				<Input id="ld_inp_newVariant" enabled="true" maxLength="20" placeholder="{i18n>namenewvariant}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</Input>
+				<Button id="btn_newVariant" text="{i18n>addvariant}" enabled="true">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Button>
+				<Text text="{i18n>changevariant}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</Text>
+				<Select id="ld_select_variant" change="onNewVariantSelect">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</Select>
+				<CheckBox id="cb_useForExcel" visible="false" text="{i18n>useforexcel}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</CheckBox>
+				<Button id="btn_del_variant" text="{i18n>deletevariant}" enabled="true">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Button>
+			</f:SimpleForm>
+			<f:SimpleForm id="sf_showhidecol" layout="ResponsiveGridLayout" editable="true" labelSpanL="1" labelSpanXL="1" labelSpanM="2"
+				labelSpanS="12">
+				<f:content>
+					<Text text="{i18n>selectemployees}" visible="{UserData>/features/VARIANTEMP/IsActive}"/>
+					<HBox renderType="Bare" visible="{UserData>/features/VARIANTEMP/IsActive}">
+						<MultiComboBox id="idSelectEmployees" selectionChange="onEmployeeSelChange" items="{path: '/viewEmployeeSet', suspended: true}">
+							<core:Item key="{EmpId}" text="{FirstName} {LastName}"/>
+						</MultiComboBox>
+						<Button tooltip="{i18n>ttSelectEmployees}" id="selectAllEmployees" icon="sap-icon://accept" press="onMassSelection"/>
+					</HBox>
+					<Text text="{i18n>selectcolumns}"/>
+					<CheckBox id="selectAll" select="selectDeselectAllHideShow" text="{i18n>selectall}"></CheckBox>
+					<HBox>
+						<VBox id="vb_hide_cols"></VBox>
+					</HBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_show_hide_save" text="{i18n>save}" tooltip="{i18n>ttsave}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeHideShowColumns" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

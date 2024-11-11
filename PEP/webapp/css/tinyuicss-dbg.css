@@ -1,0 +1,51 @@
+.tinyuicss .sapUiTableCell .sapMBtnContent {
+	text-align: left !important;
+	margin-left: 5px !important;
+}
+
+.tinyuicss .sapUiTable .sapUiTableCell > span {
+    width: 100%;
+    line-height: 28px;
+    padding-left: 5px;
+}
+
+.tinyuicss .sapUiTable .sapUiTableCellInner > span {
+    width: 100%;
+    line-height: 28px;
+    padding-left: 5px;
+}
+
+.tinyuicss .sapUiTableDataCell, 
+.tinyuicss .sapUiTableCreationRow .sapUiTableCreationRowForm .sapUiTableCell {
+    padding: 0;
+}
+
+.tinyuicss .sapUiTableCell .sapMInputBaseInner {
+    width: calc(100% - 1.0rem) !important;
+}
+
+.tinyuicss .sapUiTableDataCell>.sapUiTableCellInner, 
+.tinyuicss .sapUiTableCreationRow .sapUiTableCreationRowForm .sapUiTableCell>.sapUiTableCellInner {
+    padding: 0 0.1rem;
+}
+
+.tinyuicss .sapUiTableDataCell .sapMComboBox .sapMInputBaseInner{
+	font-size: 10px !important;
+}
+
+.tinyuicss .sapUiTableDataCell .sapMComboBox .sapMInputBaseContentWrapper, 
+.tinyuicss .sapUiTableDataCell .sapMComboBox .sapMInputBaseContentWrapper {
+    min-width: 50px !important;
+}
+
+.tinyuicss .sapUiTableDataCell .sapMComboBox .sapUiIconPointer {
+	font-size: 10px !important;
+}
+
+.tinyuicss .sapUiTableCell .sapMLabel {
+	overflow: visible !important;
+}
+
+.tinyuicss .sapUiTableHeaderCell p {
+	font-size: 12px !important;
+}

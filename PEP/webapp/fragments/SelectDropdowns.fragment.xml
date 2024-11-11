@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>selectdropdown}" contentWidth="400px" contentHeight="500px" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm id="sf_selectdropdown" layout="ResponsiveGridLayout" editable="true" labelSpanL="1" labelSpanXL="1" labelSpanM="2"
+				labelSpanS="12">
+				<f:content>
+					<Label text="{i18n>ddtype}"></Label>
+					<Select id="sel_ddtype" change="onDDTypeChange"></Select>
+					<Label text="{i18n>ddselection}"></Label>
+					<CheckBox id="selectAll" select="selectDeselectAllSelectDropdown" text="{i18n>selectall}"></CheckBox>
+					<HBox>
+						<VBox id="vb_select_dropdown"></VBox>
+					</HBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_select_dropdown_save" text="{i18n>save}" tooltip="{i18n>ttsave}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeSelectDropdowns" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

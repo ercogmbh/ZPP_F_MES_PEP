@@ -1,0 +1,257 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>maintaindemand}" draggable="true" resizable="true" stretch="true">
+		<content>
+			<HBox class="sapUiSmallMargin sapUiNoMarginTop sapUiNoMarginBottom" justifyContent="SpaceBetween">
+				<Select id="idDemandShiftGroupSelection" items="{/unitShiftSet}" selectedKey="{/Id}" change="changeDemandShiftSelection">
+					<core:Item text="{= ${Begda}.toLocaleDateString() + ' - ' + ${Endda}.toLocaleDateString()}" key="{Id}" />
+				</Select>
+				<HBox>
+					<!--<Button icon="sap-icon://arrow-left" enabled="{=${/unitShift/MoveBack} > 0}" press="onMoveDemandBack" tooltip="{i18n>ttdemandback}" />-->
+					<DatePicker dateValue="{/unitShift/Begda}" width="150px" />
+					<DatePicker dateValue="{/unitShift/Endda}" width="150px" />
+					<!--<Button icon="sap-icon://arrow-right" enabled="{=${/unitShift/MoveFor} > 0}" press="onMoveDemandFor" tooltip="{i18n>ttdemandfor}"/>-->
+				</HBox>
+				<HBox>
+					<Button icon="sap-icon://add" text="{i18n>adddata}" press="onAddNewDemandTime" />
+					<Button icon="sap-icon://delete" text="{i18n>deletedata}" press="onDeleteDemandTimeWrapper" />
+				</HBox>
+				<HBox>
+					<Select width="150px" change="onDemandShiftChange" selectedKey="{/unitShift/Shifts}">
+						<core:ListItem text="{i18n>1shift}" key="1"></core:ListItem>
+						<core:ListItem text="{i18n>2shift}" key="2"></core:ListItem>
+						<core:ListItem text="{i18n>3shift}" key="3"></core:ListItem>
+						<core:ListItem text="{i18n>4shift}" key="4"></core:ListItem>
+						<core:ListItem text="{i18n>5shift}" key="5"></core:ListItem>
+						<core:ListItem text="{i18n>6shift}" key="6"></core:ListItem>
+					</Select>
+					<CheckBox text="{i18n>overload}" selected="{/unitShift/Overwrite}" class="sapUiTinyMarginBegin" />
+				</HBox>
+			</HBox>
+			<f:SimpleForm title="" layout="ResponsiveGridLayout" editable="true">
+				<!--<FlexBox direction="Row" alignItems="Start" class="sapUiResponsivePadding">
+					<layoutData>
+						<l:GridData span="XL12 L12 M12 S12"/>
+					</layoutData>
+					<DatePicker dateValue="{/unitShift/Begda}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</DatePicker>
+					<DatePicker dateValue="{/unitShift/Endda}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</DatePicker>
+					<Button icon="sap-icon://arrow-left" enabled="{=${/unitShift/MoveBack} > 0}" press="onMoveDemandBack" tooltip="{i18n>ttdemandback}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+					<Button icon="sap-icon://arrow-right" enabled="{=${/unitShift/MoveFor} > 0}" press="onMoveDemandFor" tooltip="{i18n>ttdemandfor}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+				</FlexBox>-->
+				<!--<FlexBox direction="Row" alignItems="Start" class="sapUiResponsivePadding">
+					<Select width="100%" change="onDemandShiftChange" selectedKey="{/unitShift/Shifts}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+						<core:ListItem text="{i18n>1shift}" key="1"></core:ListItem>
+						<core:ListItem text="{i18n>2shift}" key="2"></core:ListItem>
+						<core:ListItem text="{i18n>3shift}" key="3"></core:ListItem>
+						<core:ListItem text="{i18n>4shift}" key="4"></core:ListItem>
+						<core:ListItem text="{i18n>5shift}" key="5"></core:ListItem>
+						<core:ListItem text="{i18n>6shift}" key="6"></core:ListItem>
+					</Select>
+					<CheckBox text="{i18n>overload}" selected="{/unitShift/Overwrite}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</CheckBox>
+					<Button icon="sap-icon://add" text="{i18n>adddata}" press="onAddNewDemandTime">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+					<Button icon="sap-icon://delete" text="{i18n>deletedata}" press="onDeleteDemandTimeWrapper">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+				</FlexBox>-->
+				<FlexBox direction="Row" class="sapUiResponsivePadding" justifyContent="Center">
+					<layoutData>
+						<l:GridData span="XL12 L12 M12 S12"/>
+					</layoutData>
+					<FlexBox direction="Column" visible="{=${/unitShift/Shifts} > 0}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12"/>
+						</layoutData>
+						<Label text="{i18n>shift1}"></Label>
+						<FlexBox direction="Row">
+							<TimePicker value="{ path: '/unitShift/Beguz1', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px"></TimePicker>
+							<TimePicker value="{ path: '/unitShift/Enduz1', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px" class="sapUiTinyMarginBegin"></TimePicker>
+						</FlexBox>
+					</FlexBox>
+					<FlexBox direction="Column" visible="{=${/unitShift/Shifts} > 1}">
+						<Label text="{i18n>shift2}"></Label>
+						<FlexBox direction="Row">
+							<TimePicker value="{ path: '/unitShift/Beguz2', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px"></TimePicker>
+							<TimePicker value="{ path: '/unitShift/Enduz2', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px" class="sapUiTinyMarginBegin"></TimePicker>
+						</FlexBox>
+					</FlexBox>
+					<FlexBox direction="Column" visible="{=${/unitShift/Shifts} > 2}">
+						<Label text="{i18n>shift3}"></Label>
+						<FlexBox direction="Row">
+							<TimePicker value="{ path: '/unitShift/Beguz3', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px"></TimePicker>
+							<TimePicker value="{ path: '/unitShift/Enduz3', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px" class="sapUiTinyMarginBegin"></TimePicker>
+						</FlexBox>
+					</FlexBox>
+				</FlexBox>
+				<FlexBox direction="Row" visible="{=${/unitShift/Shifts} > 3}" justifyContent="Center">
+					<layoutData>
+						<l:GridData span="XL12 L12 M12 S12"/>
+					</layoutData>
+					<FlexBox direction="Column" visible="{=${/unitShift/Shifts} > 3}">
+						<Label text="{i18n>shift4}"></Label>
+						<FlexBox direction="Row">
+							<TimePicker value="{ path: '/unitShift/Beguz4', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px"></TimePicker>
+							<TimePicker value="{ path: '/unitShift/Enduz4', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px" class="sapUiTinyMarginBegin"></TimePicker>
+						</FlexBox>
+					</FlexBox>
+					<FlexBox direction="Column" visible="{=${/unitShift/Shifts} > 4}">
+						<Label text="{i18n>shift5}"></Label>
+						<FlexBox direction="Row">
+							<TimePicker value="{ path: '/unitShift/Beguz5', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px"></TimePicker>
+							<TimePicker value="{ path: '/unitShift/Enduz5', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px" class="sapUiTinyMarginBegin"></TimePicker>
+						</FlexBox>
+					</FlexBox>
+					<FlexBox direction="Column" visible="{=${/unitShift/Shifts} > 5}">
+						<Label text="{i18n>shift6}"></Label>
+						<FlexBox direction="Row">
+							<TimePicker value="{ path: '/unitShift/Beguz6', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px"></TimePicker>
+							<TimePicker value="{ path: '/unitShift/Enduz6', type: 'sap.ui.model.odata.type.Time'}" displayFormat="HH:mm" valueFormat="HH:mm" width="120px" class="sapUiTinyMarginBegin"></TimePicker>
+						</FlexBox>
+					</FlexBox>
+				</FlexBox>
+				<Table id="tbl_demand_shiftgroup">
+					<layoutData>
+						<l:GridData span="XL12 L12 M12 S12"/>
+					</layoutData>
+					<columns>
+						<Column width="3%">
+							<Text text="{i18n>day}"></Text>
+						</Column>
+						<Column width="3%">
+							<Text text=""></Text>
+						</Column>
+						<Column width="20%">
+							<Text text="{i18n>stchangequal}"></Text>
+						</Column>
+						<Column width="5%">
+							<Text text=""></Text>
+						</Column>
+						<Column width="10%" visible="{=${/unitShift/Shifts} > 0}">
+							<Text text="{i18n>demand1}"></Text>
+						</Column>
+						<Column width="10%" visible="{=${/unitShift/Shifts} > 1}">
+							<Text text="{i18n>demand2}"></Text>
+						</Column>
+						<Column width="10%" visible="{=${/unitShift/Shifts} > 2}">
+							<Text text="{i18n>demand3}"></Text>
+						</Column>
+						<Column width="10%" visible="{=${/unitShift/Shifts} > 3}">
+							<Text text="{i18n>demand4}"></Text>
+						</Column>
+						<Column width="10%" visible="{=${/unitShift/Shifts} > 4}">
+							<Text text="{i18n>demand5}"></Text>
+						</Column>
+						<Column width="10%" visible="{=${/unitShift/Shifts} > 5}">
+							<Text text="{i18n>demand6}"></Text>
+						</Column>
+					</columns>
+					<dependents>
+						<ColumnListItem id="demandTableShiftGroupTemplate">
+							<cells>
+								<Text text="{Daynr}"/>
+								<!--<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>-->
+										<Button icon="sap-icon://add" visible="true" press="onAddDemandQual"></Button>
+									<!--</items>
+								</FlexBox>-->
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<ComboBox width="100%" items="{/qualifications}" selectedKey="{QualId}">
+											<core:ListItem key="{QualId}" text="{QualId} - {QualText}"></core:ListItem>
+										</ComboBox>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Button icon="sap-icon://delete" press="onDeleteDemandQual"></Button>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Input value="{Demand1}" type="Number"></Input>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Input value="{Demand2}" type="Number"></Input>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Input value="{Demand3}" type="Number"></Input>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Input value="{Demand4}" type="Number"></Input>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Input value="{Demand5}" type="Number"></Input>
+									</items>
+								</FlexBox>
+								<FlexBox direction="Column" items="{dayToDemand/results}">
+									<items>
+										<Input value="{Demand6}" type="Number"></Input>
+									</items>
+								</FlexBox>
+							</cells>
+						</ColumnListItem>
+					</dependents>
+				</Table>
+				<Button text="{i18n>addday}" press="onAddDemandDay">
+					<layoutData>
+						<l:GridData linebreak="true"/>
+					</layoutData>
+				</Button>
+				<Button text="{i18n>adddayfromold}" press="onAddDemandDayFromLast">
+					<layoutData>
+						<l:GridData/>
+					</layoutData>
+				</Button>
+				<Button text="{i18n>txtsave}" press="saveUnitShifts">
+					<layoutData>
+						<l:GridData/>
+					</layoutData>
+				</Button>
+				<Button text="{i18n>discard}" press="onCancelDemandShiftGroup">
+					<layoutData>
+						<l:GridData/>
+					</layoutData>
+				</Button>
+			</f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseMaintainDemand2" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

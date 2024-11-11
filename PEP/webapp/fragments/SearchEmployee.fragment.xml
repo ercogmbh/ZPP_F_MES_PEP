@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+	<Dialog title="{i18n>dialogtitle_search_employee}" contentWidth="40%">
+		<Panel headerText="{i18n>employee_search}">
+			<form:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12"
+				adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+				<Label text="{i18n>lastname}"/>
+				<Input value="{searchedEmployee>/lastnameSearch}" submit="onSearchEmployee"
+					valueState="{=${searchedEmployee>/validate} &amp;&amp; ${searchedEmployee>/lastnameSearch} === '' &amp;&amp; ${searchedEmployee>/firstnameSearch} === ''? 'Error': 'None'}"/>
+				<Label text="{i18n>firstname}"/>
+				<Input value="{searchedEmployee>/firstnameSearch}" submit="onSearchEmployee"
+					valueState="{=${searchedEmployee>/validate} &amp;&amp; ${searchedEmployee>/lastnameSearch} === '' &amp;&amp; ${searchedEmployee>/firstnameSearch} === ''? 'Error': 'None'}"/>
+				<Label text="{i18n>pernr}"/>
+				<Input value="{searchedEmployee>/pernrSearch}" submit="onSearchEmployee"
+					valueState="{=${searchedEmployee>/validate} &amp;&amp; ${searchedEmployee>/pernrSearch} === '' &amp;&amp; ${searchedEmployee>/pernrSearch} === ''? 'Error': 'None'}"/>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button text="{i18n>search}" type="Emphasized" press="onSearchEmployee" icon="sap-icon://search"/>
+				</Toolbar>
+			</form:SimpleForm>
+		</Panel>
+		<Panel>
+			<Table id="employeeSearchhelpId" mode="SingleSelect">
+				<columns>
+					<Column>
+						<Text text="{i18n>pernr}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>lastname}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>firstname}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>planunit}"/>
+					</Column>
+				</columns>
+			</Table>
+		</Panel>
+		<buttons>
+			<Button text="{i18n>searchEmp}" press="onJumpToEmployee" type="Accept" icon="sap-icon://action"/>
+			<Button text="{i18n>jumpToCo}" press="onJumpToTO" type="Default" icon="sap-icon://personnel-view"/>
+			<Button text="{i18n>cancel}" press="closeSearchEmployeeDialog" type="Transparent"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

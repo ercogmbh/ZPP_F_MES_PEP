@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:uc="sap.ui.unified.calendar" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>xlsdownbutton}" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm id="xls_sf_form" layout="ResponsiveGridLayout" editable="true" width="500px">
+				<f:content>
+					<VBox>
+						<Label text="{i18n>timeframe1year}"></Label>
+						<DatePicker id="dp_excel_begda" placeholder="{i18n>from}" tooltip="{i18n>ttbegda}"></DatePicker>
+						<DatePicker id="dp_excel_endda" placeholder="{i18n>to}" tooltip="{i18n>ttendda}"></DatePicker>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_download_excel" text="{i18n>download}" tooltip="{i18n>ttdownload}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseYearExcelPopup" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

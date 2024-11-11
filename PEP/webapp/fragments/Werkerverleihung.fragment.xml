@@ -1,0 +1,120 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>ttWerkerverleihungTitle}" id="add_Werkerverleihung_id" draggable="true" resizable="true" contentWidth="500px"
+		class="sapUiResponsiveMargin">
+		<content>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttMitArbeiter}" width="200px" required="true"/>
+				</VBox>
+				<VBox width="50%">
+					<ComboBox items="{ path: '/CountriesCollection', sorter: { path: 'text' } }">
+						<core:Item key="{key}" text="{text}"/>
+					</ComboBox>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%">
+					<Label text="{i18n>ttMitArbeiterkreis}" width="200px"/>
+				</VBox>
+				<VBox width="50%">
+					<Text text="Ma-Kreis 4711" wrapping="false"/>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" >
+					<Label text="{i18n>ttabteilung}" width="200px"/>
+				</VBox>
+				<VBox width="50%">
+					<Text text="Abteilung ABC" wrapping="false"/>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%">
+					<Label text="{i18n>ttStamm}" width="200px"/>
+				</VBox>
+				<VBox width="50%">
+					<Text text="Kostenstelle A" wrapping="false"/>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttSZielkosten}" width="200px" required="true"/>
+				</VBox>
+				<VBox width="50%">
+					<ComboBox items="{ path: '/CountriesCollection2', sorter: { path: 'text' } }">
+						<core:Item key="{key}" text="{text}"/>
+					</ComboBox>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttSKostenStelle}" width="200px" required="true"/>
+				</VBox>
+				<VBox width="50%">
+					<ComboBox items="{ path: '/CountriesCollection4', sorter: { path: 'text' } }">
+						<core:Item key="{key}" text="{text}"/>
+					</ComboBox>
+				</VBox>
+			</HBox>
+			<Panel expandable="false" expanded="true" width="auto" class="sapUiResponsiveMargin" backgroundDesign="Translucent"
+				headerText="{i18n>ttVerleihungzeitraum}">
+				<HBox class="sapUiResponsiveMargin">
+					<VBox width="60%" class="sapUiSmallMarginTop">
+						<Label text="{i18n>ttStartC}" width="200px" required="true"/>
+					</VBox>
+					<VBox width="40%">
+						<DatePicker id="DP1" class="sapUiSmallMarginBottom"/>
+					</VBox>
+				</HBox>
+				<HBox class="sapUiResponsiveMargin">
+					<VBox width="60%" class="sapUiSmallMarginTop">
+						<Label text="{i18n>ttStundC}" width="200px"/>
+					</VBox>
+					<VBox width="40%">
+						<Input id="Stunden" class="sapUiSmallMarginBottom" type="Number"/>
+					</VBox>
+				</HBox>
+				<HBox class="sapUiResponsiveMargin">
+					<VBox width="60%" class="sapUiSmallMarginTop">
+						<Label text="{i18n>ttEndeC}" width="200px" required="true"/>
+					</VBox>
+					<VBox width="40%">
+						<DatePicker id="DP2" class="sapUiSmallMarginBottom"/>
+					</VBox>
+				</HBox>
+			</Panel>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttverleiC}" width="200px" required="true"/>
+				</VBox>
+				<VBox width="50%">
+					<ComboBox items="{ path: 'Customizing>/loan_employe'}" selectedKey="{Customizing>Verleigrunde}">
+						<core:ListItem key="{Customizing>Verleigrunde}" text="{Customizing>Verleigrundetxt}" additionalText="{Customizing>Verleigrundetxt}" />
+					</ComboBox>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttbemerC}" width="200px" />
+				</VBox>
+				<VBox width="50%">
+					<Input id="Bemerkung"/>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="50%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttkantierC}" width="200px" />
+				</VBox>
+				<VBox width="50%">
+					<Input id="Kontierkung"/>
+				</VBox>
+			</HBox>
+		</content>
+		<beginButton>
+			<Button id="btn_Werkerverleihung_save" text="{i18n>saveWerker}" tooltip="{i18n>ttsave}" press="saveWerkerverleihung"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>closeWerker}" press="closeWerkerverleihung" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>ttaddNewTime}" id="add_new_time" draggable="true" resizable="true" contentWidth="700px" class="sapUiResponsiveMargin">
+		<content>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="70%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttBox}" width="200px"/>
+				</VBox>
+				<VBox width="30%">
+					<TimePicker id="TP2" valueFormat="HH:mm" displayFormat="HH:mm" change="ModifyAllTime"/>
+				</VBox>
+			</HBox>
+			<HBox class="sapUiResponsiveMargin">
+				<VBox width="70%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttDate}" width="200px"/>
+				</VBox>
+				<VBox width="30%">
+					<DatePicker id="DateStartTime" change="changeDateStart" class="sapUiSmallMarginBottom"/>
+				</VBox>
+			</HBox>
+			<t:Table id="idEmployeeNewTimeTable" class="sapUiResponsiveMargin" width="auto" selectionMode="None">
+				<t:columns>
+					<t:Column>
+						<Label text="{i18n>ttName}" tooltip="{i18n>ttmainworkplace}"/>
+						<t:template>
+							<Text text="{Name}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="{i18n>ttSurname}" tooltip="{i18n>ttmainworkplace}"/>
+						<t:template>
+							<Text text="{Surname}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<Label text="{i18n>ttTime}" tooltip="{i18n>ttmainworkplace}"/>
+						<t:template>
+							<TimePicker id="TP1" value="{path: 'Time' , type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern : 'HH:mm' } }"
+								valueFormat="HH:mm" displayFormat="HH:mm"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+		</content>
+		<beginButton>
+			<Button id="btn_addNewTime_save" text="{i18n>save}" tooltip="{i18n>ttsave}" press="saveNewTime"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeNewTime" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,65 @@
+<mvc:View controllerName="MIND2PEP_PLANNER.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:ui="sap.ui.table">
+	<App>
+		<pages>
+			<Page id="page" title="{i18n>pepPlanner}" class="sapUiSizeCompact globalCustom" showHeader="false">
+				<content>
+					<Panel id="pnl_timeframe" expandable="true" expanded="{= !${UserData>/CalDisabled}}" headerText="{i18n>datePanelHeader}" expand="panelExpandChange">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="{i18n>datePanelHeader}"/>
+								<HBox renderType="Bare">
+									<!--<DatePicker width="200px" dateValue="{UserData>/Begda}" displayFormat="short" placeholder="{i18n>begda}" change="onDatePickerChange"-->
+									<!--	class="sapUiTinyMarginBegin"/>-->
+									<!--<DatePicker width="200px" dateValue="{UserData>/Endda}" displayFormat="short" placeholder="{i18n>endda}" change="onDatePickerChange"-->
+									<!--	class="sapUiTinyMarginBegin"/>-->
+								</HBox>
+								<ToolbarSpacer/>
+								<Button id="btn_search_employee" icon="sap-icon://employee-lookup" press="onSearchEmployeePress" tooltip="{i18n>searchEmployee}"
+									visible="false"/>
+								<Label id="lbl_rowheight" text="{i18n>lblrowheight}" tooltip="{i18n>lblrowheighttt}" visible="false" labelFor="sbtn_rowheight"></Label>
+								<SegmentedButton id="sbtn_rowheight" selectionChange="rowHeightChange" visible="true" class="sapUiSizeCozy"
+									selectedKey="{UserData>/Rowheight}">
+									<items>
+										<SegmentedButtonItem text="{i18n>narrow}" tooltip="{ttnarrow}" key="CONDENSED"/>
+										<SegmentedButtonItem text="{i18n>normal}" tooltip="{ttnormal}" key="COMPACT"/>
+										<SegmentedButtonItem text="{i18n>wide}" tooltip="{ttwide}" key="COZY"/>
+									</items>
+								</SegmentedButton>
+								<Label id="lbl_slider_nolines" text="{i18n>nooflines}" tooltip="{i18n>nooflinestt}" visible="false"/>
+								<Slider id="slider_nolines" value="1" width="5%" min="1" max="99" showAdvancedTooltip="true" showHandleTooltip="false"
+									inputsAsTooltips="true" change="onChangeNoOfLines" visible="false"/>
+								<Button id="btn_show_plan_only" icon="sap-icon://personnel-view" press="onPressShowPlanOnly" tooltip="{i18n>allPlansVisible}"/>
+								<Button id="btn_show_sums_only" icon="sap-icon://chart-table-view" press="onPressShowSumsOnly" tooltip="{i18n>allSumsVisible}"/>
+								<Button id="btn_collapse_all" icon="sap-icon://collapse-group" press="onPressCollapseAll"/>
+							</Toolbar>
+						</headerToolbar>
+						<u:Calendar id="cal_timeframe" startDateChange="onCalStartDateChange" intervalSelection="true" months="1" width="100%"
+							select="onCalendarSelect" specialDates="{/specialDatesSet}">
+							<u:specialDates>
+								<u:DateTypeRange startDate="{Startdate}" endDate="{Enddate}" type="{Type}"></u:DateTypeRange>
+							</u:specialDates>
+						</u:Calendar>
+						<u:CalendarDateInterval id="cal_interval" startDateChange="onCalStartDateChange" days="31" width="100%" intervalSelection="true"
+							select="onCalendarSelect" visible="false" specialDates="{/specialDatesSet}">
+							<u:specialDates>
+								<u:DateTypeRange startDate="{Startdate}" endDate="{Enddate}" type="{Type}"></u:DateTypeRange>
+							</u:specialDates>
+						</u:CalendarDateInterval>
+					</Panel>
+				</content>
+				<footer>
+					<Bar>
+						<!--<contentLeft>-->
+						<!--<Button id="msg_btn" icon="sap-icon://message-popup" text="{messagesOptions>/countMessages}" tooltip="{i18n>ttmessages}" type="Emphasized" press="handleMessagePopoverPress"></Button>-->
+						<!--</contentLeft>-->
+						<contentRight>
+							<Button type="Accept" id="btnSave" text="{i18n>txtsave}" tooltip="{i18n>ttsave}" icon="sap-icon://save" press="onSave" visible="false"/>
+							<Button type="Reject" id="btnCancel" text="{i18n>txtcancel}" tooltip="{i18n>ttcancel}" press="onCancel" visible="false"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

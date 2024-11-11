@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>print}" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanL="2" labelSpanXL="2" labelSpanM="3" labelSpanS="12">
+				<f:content>
+					<Label text="{i18n>begda}"></Label>
+					<DatePicker id="dp_form_begda" tooltip="{i18n>ttbegda}"></DatePicker>
+					<Label text="{i18n>timeframe}"></Label>
+					<VBox>
+						<RadioButtonGroup id="rbg_timeFrame" selectedIndex="{FormDownloadModel>/RadioIndex}">
+							<RadioButton text="{i18n>1week}" tooltip="{i18n>tt1week}">
+								<customData>
+									<core:CustomData key="weeks" value="1"></core:CustomData>
+								</customData>
+							</RadioButton>
+							<RadioButton text="{i18n>2week}" tooltip="{i18n>tt2week}">
+								<customData>
+									<core:CustomData key="weeks" value="2"></core:CustomData>
+								</customData>
+							</RadioButton>
+							<RadioButton text="{i18n>4week}" tooltip="{i18n>tt4week}">
+								<customData>
+									<core:CustomData key="weeks" value="4"></core:CustomData>
+								</customData>
+							</RadioButton>
+							<RadioButton text="{i18n>otherweeks}:" tooltip="{i18n>ttotherweeks}">
+								<customData>
+									<core:CustomData key="weeks" value="0"></core:CustomData>
+								</customData>
+							</RadioButton>
+						</RadioButtonGroup>
+						<StepInput value="{FormDownloadModel>/CustomWeekCount}" enabled="{= ${FormDownloadModel>/RadioIndex} === 3}" description="{i18n>weeks}"
+							textAlign="Center" min="1"/>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_form_download" text="{i18n>download}" tooltip="{i18n>ttdownload}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeFormDownload" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<!--<SelectDialog title="{i18n>choosequal}" id="dialog_qual" confirm="onSelectQual"></SelectDialog>-->
+	<Dialog title="{i18n>addActivity}" draggable="true" resizable="true">
+		<content>
+			<VBox id="vb_qual_pick_id">
+				<CheckBox text="{QualText}" selected="{Assigned}"/>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="{i18n>save}" press="onSaveButtonPress" type="Accept"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>txtcancel}" press="onCloseButtonPress" type="Reject"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

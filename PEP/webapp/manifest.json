@@ -12,7 +12,7 @@
         "sourceTemplate": {
             "id": "servicecatalog.connectivityComponentForManifest",
             "version": "0.0.0",
-            "toolsId": "a40fa06b-d715-4e65-b29a-6a3cf5f0e6ce"
+            "toolsId": "8bcefa82-f58b-4ed3-b2e3-2edfe8792f87"
         },
         "dataSources": {
             "PEP_PLANNER_SRV": {

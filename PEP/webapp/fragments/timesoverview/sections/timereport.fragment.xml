@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Panel expandable="true" headerText="{i18n>rptimemsg}">
+		<HBox>
+			<f:SimpleForm layout="ResponsiveGridLayout" editable="true">
+				<Button text="{i18n>rptime}" press="onStartRptimeTimesOverview">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</Button>
+				<List id="li_rp_to_msg" growing="true" growingThreshold="5">
+					<layoutData>
+						<l:GridData span="XL6 L6 M6 S12" linebreak="true"/>
+					</layoutData>
+					<dependents>
+						<ObjectListItem id="oli_rp_to_template" title="{MessageText}" type="Active" 
+							intro="{ path: 'Begda', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short', UTC: true}}"
+							press="onClickRptimeMsg"></ObjectListItem>
+					</dependents>
+				</List>
+			</f:SimpleForm>
+		</HBox>
+	</Panel>
+</core:FragmentDefinition>

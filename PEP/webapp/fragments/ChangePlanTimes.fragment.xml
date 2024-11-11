@@ -1,0 +1,86 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>changeplantime}" id="dlg_changePlanTime" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm title="" layout="ResponsiveGridLayout">
+				<Text text="{i18n>currentplantime}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Text>
+				<TimePicker id="ld_tp_beguz" valueFormat="HH:mm" displayFormat="HH:mm" tooltip="{i18n>tttimefromtable}" editable="false">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</TimePicker>
+				<TimePicker id="ld_tp_enduz" valueFormat="HH:mm" displayFormat="HH:mm" tooltip="{i18n>tttimetotable}" editable="false">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</TimePicker>
+				<Text text="{i18n>newplantime}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</Text>
+				<TimePicker id="ld_tp_newbeguz" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timefrom}" tooltip="{i18n>tttimefrom}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</TimePicker>
+				<TimePicker id="ld_tp_newenduz" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timeto}" tooltip="{i18n>tttimeto}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</TimePicker>
+				<Label id="lbl_break1" text="{i18n>shiftbreak1}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Label>
+				<TimePicker id="ld_tp_beguz_break1" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timefrom}" tooltip="{i18n>tttimefrom}"
+					change="onInputChange">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</TimePicker>
+				<TimePicker id="ld_tp_enduz_break1" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timeto}" tooltip="{i18n>tttimeto}"
+					change="onInputChange">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</TimePicker>
+				<Label id="lbl_break2" text="{i18n>shiftbreak2}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Label>
+				<TimePicker id="ld_tp_beguz_break2" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timefrom}" tooltip="{i18n>tttimefrom}"
+					change="onInputChange">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</TimePicker>
+				<TimePicker id="ld_tp_enduz_break2" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timeto}" tooltip="{i18n>tttimeto}"
+					change="onInputChange">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</TimePicker>
+				<Button id="btn_saveplantime" text="{i18n>saveplantime}" press="onSaveNewPlanTime" tooltip="{i18n>ttsaveplantime}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+					</layoutData>
+				</Button>
+				<Button id="btn_deleteplantime" text="{i18n>deleteplantime}" press="onDeletePlanTime" tooltip="{i18n>ttdeleteplantime}">
+					<layoutData>
+						<l:GridData span="XL3 L3 M3 S12"/>
+					</layoutData>
+				</Button>
+			</f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseChangePlanTime" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

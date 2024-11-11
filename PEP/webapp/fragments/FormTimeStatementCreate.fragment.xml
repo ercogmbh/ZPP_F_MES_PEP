@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:uc="sap.ui.unified.calendar" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>timestatecreate}" draggable="true" resizable="true">
+		<content>
+			<f:SimpleForm id="ts_sf_form" layout="ResponsiveGridLayout" editable="true" width="500px">
+				<f:content>
+					<HBox>
+						<RadioButton groupName="A" text="{i18n>monthly}" selected="{/selectedA}"></RadioButton>
+						<RadioButton groupName="A" text="{i18n>daily}" selected="{/selectedB}"></RadioButton>
+					</HBox>
+					<VBox>
+						<Label text="{i18n>timeframe}"></Label>
+						<DatePicker id="dp_timestat_begda" placeholder="{i18n>from}" tooltip="{i18n>ttbegda}" visible="{/selectedB}"></DatePicker>
+						<DatePicker id="dp_timestat_endda" placeholder="{i18n>to}" tooltip="{i18n>ttendda}" visible="{/selectedB}"></DatePicker>
+						<uc:MonthPicker id="mp_timeSlipMonth" visible="{/selectedA}"></uc:MonthPicker>
+						<uc:YearPicker id="yp_timeSlipYear" years="4" visible="{/selectedA}"></uc:YearPicker>
+						<Label text="{i18n>employeetext}"></Label>
+						<MultiComboBox id="mcb_employees" selectionChange="onTsEmpChange" selectionFinish="handleSelectionFinish"
+							items="{ path: 'oLocalEmployeeModel>/employees' }">
+							<core:Item key="{oLocalEmployeeModel>EmpId}" text="{oLocalEmployeeModel>EmpName}"/></MultiComboBox>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_download_timstat_pdf" text="{i18n>download}" tooltip="{i18n>ttdownload}"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseTimeStatementForm" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

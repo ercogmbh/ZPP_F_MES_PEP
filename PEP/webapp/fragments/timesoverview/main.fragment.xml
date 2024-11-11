@@ -1,0 +1,122 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:ux="sap.uxap" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form"
+	xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>timeManager}" verticalScrolling="false" stretch="true" afterClose="destroyTimeOverviewPopup" busy="false"
+		busyIndicatorDelay="0">
+		<content>
+			<ux:ObjectPageLayout id="ObjectPageLayout" alwaysShowContentHeader="true">
+				<ux:headerContent>
+					<f:SimpleForm layout="ResponsiveGridLayout" editable="true" width="90%">
+						<FlexBox justifyContent="Center">
+							<VBox width="100%">
+								<ComboBox width="100%" id="ld_select_emp" change="onEmployeeChangeTimeOverview" tooltip="{i18n>ttselectemp}" selectedKey="{TO>/EmpId}"
+									items="{path:'/employeeSet', suspended: true, filters: [ {path: 'SpecialEntry', operator:'EQ', value1: false} ]}">
+									<items>
+										<core:Item text="{= parseInt(${EmpId})} - {Name}" key="{EmpId}">
+											<core:customData>
+												<core:CustomData key="UnitKey" value="{UnitKey}" writeToDom="true"/>
+											</core:customData>
+										</core:Item>
+									</items>
+									<layoutData>
+										<l:GridData span="XL4 L4 M4 S12"/>
+									</layoutData>
+								</ComboBox>
+							</VBox>
+							<!--<VBox>
+								<Button id="btn_to_oneDayBack" press="onTimesOverviewOneDayBack" icon="sap-icon://arrow-left">
+									<layoutData>
+										<l:GridData span="XL1 L1 M1 S1"/>
+									</layoutData>
+								</Button>
+							</VBox>-->
+							<VBox width="100%">
+								<DateRangeSelection id="ld_dp_currentDate" placeholder="{i18n>from}" change="onChangeTimeOverviewDate" tooltip="{i18n>ttbegda}"
+									dateValue="{TO>/CurrentDate}" secondDateValue="{TO>/SecondCurrentDate}">
+									<layoutData>
+										<l:GridData span="XL4 L4 M4 S10"/>
+									</layoutData>
+								</DateRangeSelection>
+								<Input id="inp_calendarWeek" editable="false" visible="false"/>
+							</VBox>
+							<!--<VBox width="100%">
+								<Button id="btn_to_oneDayFor" press="onTimesOverviewOneDayFor" icon="sap-icon://arrow-right">
+									<layoutData>
+										<l:GridData span="XL1 L1 M1 S1"/>
+									</layoutData>
+								</Button>
+							</VBox>-->
+						</FlexBox>
+					</f:SimpleForm>
+				</ux:headerContent>
+				<ux:sections>
+					<ux:ObjectPageSection id="pnl_rptime" title="{i18n>rptimemsg}" visible="{TO>/TO_RPTIME/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.timereport" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+					<ux:ObjectPageSection id="pnl_absence" title="{i18n>absencePanelHeader}" visible="{TO>/TO_ABS/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.absence" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+					<ux:ObjectPageSection id="pnl_shift" title="{i18n>shiftPanelHeader}" visible="{TO>/TO_SHIFT/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.shift" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+					<ux:ObjectPageSection id="pnl_cico" title="{i18n>cicoPanelHeader}" visible="{TO>/TO_CICO/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.cico" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+					<ux:ObjectPageSection id="pnl_overtime" title="{i18n>overtimePanelHeader}" visible="{TO>/TO_OVERT/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.overtime" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+					<ux:ObjectPageSection id="pnl_allowance" title="{i18n>maintallowance}" visible="{TO>/TO_ALLOW/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.allowance" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+					<ux:ObjectPageSection id="pnl_timetransfer" title="{i18n>timetransferPanelHeader}" visible="{TO>/TO_TIMET/IsActive}">
+						<ux:subSections>
+							<ux:ObjectPageSubSection>
+								<ux:blocks>
+									<core:Fragment fragmentName="MIND2PEP_PLANNER.fragments.timesoverview.sections.timetransfer" type="XML"/>
+								</ux:blocks>
+							</ux:ObjectPageSubSection>
+						</ux:subSections>
+					</ux:ObjectPageSection>
+				</ux:sections>
+			</ux:ObjectPageLayout>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="closeTimeOverviewDialogViaButton" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

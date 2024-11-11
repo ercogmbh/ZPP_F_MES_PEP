@@ -1,0 +1,275 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>cyclicleavecreate}" draggable="true" resizable="true">
+		<content>
+			<Panel id="ld_formTop" expandable="false">
+				<f:SimpleForm editable="true" id="ld_form" layout="ResponsiveGridLayout">
+					<!--<ComboBox id="ld_select_emp" selectionChange="onEmployeeCyclicLeaveSelect" tooltip="{i18n>ttselectemp}">-->
+					<!--	<layoutData>-->
+					<!--		<l:GridData span="XL3 L3 M3 S12"/>-->
+					<!--	</layoutData>-->
+					<!--</ComboBox>-->
+					<Select id="ld_select_emp" change="onEmployeeCyclicLeaveSelect" tooltip="{i18n>ttselectemp}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</Select>
+					<Select id="cl_select_cyclic_event" tooltip="{i18n>ttselectsubtyleave}" change="onLeaveCyclSubtyChange">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</Select>
+					<Text id="cl_txt_blanktimes" text="{i18n>blankforwholeday}" visible="false"></Text>
+					<TimePicker id="ld_tp_beguz_leave" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timefrom}" tooltip="{i18n>tttimefrom}"
+						visible="true" change="onInputChange">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</TimePicker>
+					<TimePicker id="ld_tp_enduz_leave" valueFormat="HH:mm" displayFormat="HH:mm" placeholder="{i18n>timeto}" tooltip="{i18n>tttimeto}"
+						visible="true" change="onInputChange">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</TimePicker>
+				</f:SimpleForm>
+			</Panel>
+			<Panel id="pnl_day_week_month">
+				<f:SimpleForm layout="ResponsiveGridLayout" editable="true">
+					<RadioButtonGroup>
+						<RadioButton id="rb_daily" text="{i18n>daily}" select="showCyclicLeavePanel"></RadioButton>
+						<RadioButton id="rb_weekly" text="{i18n>weekly}" select="showCyclicLeavePanel"></RadioButton>
+						<RadioButton id="rb_monthly" text="{i18n>monthly}" select="showCyclicLeavePanel"></RadioButton>
+					</RadioButtonGroup>
+				</f:SimpleForm>
+			</Panel>
+			<Panel id="pnl_daily">
+				<f:SimpleForm layout="ResponsiveGridLayout">
+					<RadioButtonGroup>
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+						<RadioButton id="rb_daily_every" text="{i18n>every}"></RadioButton>
+						<!--<RadioButton id="rb_daily_weekday" text="{i18n>everyweekday}"></RadioButton>-->
+					</RadioButtonGroup>
+					<Input id="inp_daily_days" description="{i18n>days}">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+						</layoutData>
+					</Input>
+				</f:SimpleForm>
+			</Panel>
+			<Panel id="pnl_weekly" visible="false">
+				<f:SimpleForm layout="ResponsiveGridLayout" editable="true">
+					<Label id="l_weekly_everyxweeks" text="{i18n>all}" design="Bold">
+						<layoutData>
+							<l:GridData span="XL1 L1 M1 S1"/>
+						</layoutData>
+					</Label>
+					<Input id="inp_weekly_everyxweeks" description="{i18n>weeksat}" value="1">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</Input>
+					<CheckBox id="chb_free_days" text="{i18n>freeDays}" visible="false" select="onInputChangeAbsFreeDays">
+						<layoutData>
+							<l:GridData span="L12 M12 S12" linebreak="true"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_monday" text="{i18n>monday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3" linebreak="true"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_tuesday" text="{i18n>tuesday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_wednesday" text="{i18n>wednesday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_thursday" text="{i18n>thursday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_friday" text="{i18n>friday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_saturday" text="{i18n>saturday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</CheckBox>
+					<CheckBox id="chb_sunday" text="{i18n>sunday}" select="onInputChangeAbs">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</CheckBox>
+				</f:SimpleForm>
+			</Panel>
+			<Panel id="pnl_monthly" visible="false">
+				<f:SimpleForm layout="ResponsiveGridLayout" editable="true">
+					<RadioButtonGroup>
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+						<RadioButton id="rb_month_day" text="{i18n>day}"></RadioButton>
+						<RadioButton id="rb_month_weekday" text="{i18n>the}"></RadioButton>
+					</RadioButtonGroup>
+					<Input id="inp_month_day_day" type="Number" value="1">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S4"/>
+						</layoutData>
+					</Input>
+					<Label text="{i18n>ofevery}" design="Bold">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+						</layoutData>
+					</Label>
+					<Input id="inp_month_day_month" description="{i18n>month}" type="Number" value="1">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</Input>
+					<Select id="sel_month_weekday_week">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+						</layoutData>
+						<core:Item key="1" text="1."></core:Item>
+						<core:Item key="2" text="2."></core:Item>
+						<core:Item key="3" text="3."></core:Item>
+						<core:Item key="4" text="4."></core:Item>
+						<core:Item key="5" text="5."></core:Item>
+					</Select>
+					<Select id="sel_month_weekday_day">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+						</layoutData>
+						<core:Item key="1" text="{i18n>monday}"></core:Item>
+						<core:Item key="2" text="{i18n>tuesday}"></core:Item>
+						<core:Item key="3" text="{i18n>wednesday}"></core:Item>
+						<core:Item key="4" text="{i18n>thursday}"></core:Item>
+						<core:Item key="5" text="{i18n>friday}"></core:Item>
+						<core:Item key="6" text="{i18n>saturday}"></core:Item>
+						<core:Item key="7" text="{i18n>sunday}"></core:Item>
+					</Select>
+					<Label text="{i18n>ofevery}" design="Bold">
+						<layoutData>
+							<l:GridData span="XL2 L2 M2 S2"/>
+						</layoutData>
+					</Label>
+					<Input id="sel_month_weekday_month" description="{i18n>month}" type="Number" value="1">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</Input>
+				</f:SimpleForm>
+			</Panel>
+			<Panel>
+				<f:SimpleForm layout="ResponsiveGridLayout">
+					<DatePicker id="ld_dp_begda_leave" placeholder="{i18n>from}" tooltip="{i18n>ttbegda}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</DatePicker>
+					<DatePicker id="ld_dp_endda_leave" placeholder="{i18n>to}" tooltip="{i18n>ttendda}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S3"/>
+						</layoutData>
+					</DatePicker>
+					<Button id="btn_cyclicleaveSave" text="{i18n>saveleave}" press="onSaveCyclicLeave" tooltip="{i18n>ttsaveleave}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+						</layoutData>
+					</Button>
+					<Button id="btn_cyclicleaveEdit" text="{i18n>editleaveoverview}" press="onUpdateCyclicLeave" tooltip="{i18n>tteditleaveoverview}"
+						enabled="false">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</Button>
+					<Button id="btn_cyclicleaveCancel" text="{i18n>cancelleaveoverview}" press="clearCyclicLeavePopup" tooltip="{i18n>ttcancelleaveoverview}"
+						enabled="false">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12"/>
+						</layoutData>
+					</Button>
+					<Text text="{i18n>eventoverview}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+						</layoutData>
+					</Text>
+					<Table width="100%" showNoData="false">
+						<layoutData>
+							<l:GridData span="XL12 L12 M12 S12"/>
+						</layoutData>
+						<columns>
+							<Column>
+								<Text text="{i18n>eventtype}" tooltip="{i18n>ttsubtyleavetable}"/>
+							</Column>
+							<!--<Column>-->
+							<!--	<Text text="{i18n>cyclicleavetype}" tooltip="{i18n>cyclicleavetype}"/>-->
+							<!--</Column>-->
+							<Column>
+								<Text text="{i18n>begda}" tooltip="{i18n>ttbegdatable}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>endda}" tooltip="{i18n>ttenddatable}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>starttime}" tooltip="{i18n>tttimefromtable}"/>
+							</Column>
+							<Column>
+								<Text text="{i18n>endtime}" tooltip="{i18n>tttimetotable}"/>
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer height="15rem" vertical="true" focusable="true">
+						<layoutData>
+							<l:GridData span="XL12 L12 M12 S12"/>
+						</layoutData>
+						<Table id="ld_tbl_cyclicleaveoverview" mode="SingleSelectMaster" selectionChange="onCyclicLeaveEntrySelect" width="100%">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+							<columns>
+								<Column></Column>
+								<!--<Column></Column>-->
+								<Column></Column>
+								<Column></Column>
+								<Column></Column>
+								<Column></Column>
+							</columns>
+							<dependents>
+								<ColumnListItem id="cyclicLeaveTableTemplate">
+									<cells>
+										<Text text="{SubtyText}"></Text>
+										<!--<Text text="{Type}"></Text>-->
+										<Text text="{path: 'BeginDate', type: 'sap.ui.model.type.Date', formatOptions: 'dd.MM.yyyy' }"></Text>
+										<Text text="{path: 'EndDate', type: 'sap.ui.model.type.Date', formatOptions: 'dd.MM.yyyy' }"></Text>
+										<Text text="{path: 'BeginTime', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}"></Text>
+										<Text text="{path: 'EndTime', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}"></Text>
+									</cells>
+								</ColumnListItem>
+							</dependents>
+						</Table>
+					</ScrollContainer>
+					<Button text="{i18n>cancelleave}" press="onDeleteCyclicLeave" tooltip="{i18n>ttcancelleave}">
+						<layoutData>
+							<l:GridData span="XL3 L3 M3 S12" linebreak="true"/>
+						</layoutData>
+					</Button>
+				</f:SimpleForm>
+			</Panel>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseCyclicLeaveDialog" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

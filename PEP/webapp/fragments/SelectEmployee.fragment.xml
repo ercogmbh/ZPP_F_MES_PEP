@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="" draggable="true" contentWidth="100%">
+		<content>
+			<u:CalendarDateInterval id="cal_date_int" days="14" width="100%" intervalSelection="true" select="handleCalendarSelect"/>
+			<f:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanL="1" labelSpanXL="1" labelSpanM="2" labelSpanS="12">
+				<f:content>
+					<HBox id="hb_filters">
+						<layoutData>
+							<l:GridData span="XL12 L12 M12 S12"/>
+						</layoutData>
+						<VBox id="vb_ns_box" visible="false" width="40%">
+							<Label id="lbl_emp_search" text="{i18n>searchempname}" design="Bold"/>
+							<SearchField id="sf_emp_name" search="onSearchEmpName" placeholder="{i18n>empname}" ariaLabelledBy="lbl_emp_search"/>
+						</VBox>
+						<VBox width="60%">
+							<HBox width="100%">
+								<VBox width="70%">
+									<VBox id="vb_sg_box" visible="false" width="100%">
+										<Label text="{i18n>planunit}" design="Bold"/>
+										<MultiComboBox id="mcb_sg" visible="false"></MultiComboBox>
+									</VBox>
+									<VBox id="vb_qual_box" visible="false" width="100%">
+										<Label text="{i18n>employeequal}" design="Bold"/>
+										<MultiComboBox id="mcb_quals" visible="false"></MultiComboBox>
+										<VBox id="vb_qual"></VBox>
+									</VBox>
+								</VBox>
+								<VBox id="vb_av_box" visible="false" width="30%">
+									<Label text="{i18n>employeeavailability}" design="Bold"/>
+									<VBox id="vb_av"></VBox>
+								</VBox>
+							</HBox>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<Button text="{i18n>search}" id="btn_add_emp_search" tooltip="{i18n>ttsearch}" press="onFilterSearchButtonPress"></Button>
+							</Toolbar>
+						</VBox>
+					</HBox>
+					<VBox>
+						<Label text="{i18n>addEmp}" design="Bold">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</Label>
+						<HBox>
+							<VBox width="20%">
+								<Label text="{i18n>from}" textAlign="Left"></Label>
+								<DatePicker id="dp_begda" change="onDateChange"/>
+							</VBox>
+							<VBox width="20%">
+								<Label text="{i18n>to}" textAlign="Left"></Label>
+								<DatePicker id="dp_endda" change="onDateChange"/>
+							</VBox>
+							<VBox width="60%">
+								<Label id="lbl_add_quals" text="{i18n>qualification}" textAlign="Left"></Label>
+								<Select id="select_add_quals" tooltip="{i18n>ttselectaddquals}" width="100%"></Select>
+							</VBox>
+						</HBox>
+					</VBox>
+					<t:Table id="tbl_emp_selection" selectionMode="Single" selectionBehavior="Row" visibleRowCount="10">
+						<t:layoutData>
+							<l:GridData span="XL12 L12 M12 S12"/>
+						</t:layoutData>
+					</t:Table>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_emp_add" text="{i18n>adduser}" tooltip="{i18n>ttadduser}" press="onAddEmpButtonPress"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeSelectDialog" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

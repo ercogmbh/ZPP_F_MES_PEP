@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>log}" contentWidth="80%" resizable="true" draggable="true" afterOpen="onAfterOpenLog">
+		<content>
+			<Panel class="sapUiResponsiveMargin" width="auto">
+				<t:Table id="tbl_log" selectionMode="None" visibleRowCount="7" alternateRowColors="true" enableCellFilter="true">
+					<t:columns>
+						<t:Column>
+							<Label text="{i18n>logid}" tooltip="{i18n>ttlogid}"/>
+							<t:template>
+								<Text text="{LogId}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column minWidth="400px" filterProperty="Text">
+							<Label text="{i18n>change}" tooltip="{i18n>ttchange}"/>
+							<t:template>
+								<Text text="{Text}" wrapping="true"/>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="LogDateString">
+							<Label text="{i18n>changedate}" tooltip="{i18n>ttchangedate}"/>
+							<t:template>
+								<Text text="{LogDateString}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="LogTimeString">
+							<Label text="{i18n>changetime}" tooltip="{i18n>ttchangetime}"/>
+							<t:template>
+								<Text text="{LogTimeString}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="LogUser">
+							<Label text="{i18n>changeuser}" tooltip="{i18n>ttchangeuser}"/>
+							<t:template>
+								<Text text="{LogUser}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column filterProperty="LogType">
+							<Label text="{i18n>logtype}" tooltip="{i18n>ttlogtype}"/>
+							<t:template>
+								<Text text="{LogType}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:Table>
+			</Panel>
+			<!--<f:Form id="FormLog" editable="false">-->
+			<!--<f:layout>-->
+			<!--	<f:ResponsiveGridLayout/>-->
+			<!--</f:layout>-->
+			<!--<f:formContainers>-->
+			<!--	<f:FormContainer>-->
+			<!--		<f:formElements>-->
+			<!--			<f:FormElement>-->
+			<!--				<f:fields>-->
+			<!--				</f:fields>-->
+			<!--			</f:FormElement>-->
+			<!--		</f:formElements>-->
+			<!--	</f:FormContainer>-->
+			<!--</f:formContainers>-->
+			<!--</f:Form>-->
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="closeLogDialog" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

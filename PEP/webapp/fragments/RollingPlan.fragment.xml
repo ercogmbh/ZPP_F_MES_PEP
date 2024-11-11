@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" afterClose="afterCloseRollingPlan"
+	xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout">
+	<Dialog contentWidth="400px" draggable="true">
+		<customHeader>
+			<Toolbar>
+				<Title level="H3" text="" />
+				<ToolbarSpacer />
+				<CheckBox text="{i18n>create-rolling-plan}" selected="{RollingPlanModel>/New}" class="sapUiSmallMarginEnd" select="onRPCreateChange"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiSmallMargin" visible="{RollingPlanModel>/New}">
+				<Label text="{i18n>date-range}" />
+				<DateRangeSelection dateValue="{RollingPlanModel>/Begda}" 
+					secondDateValue="{RollingPlanModel>/Endda}" change="loadRollingPlans"/>
+			</VBox>
+			<VBox class="sapUiSmallMargin" visible="{= !${RollingPlanModel>/New}}">
+				<Label text="Planungsvariante"/>
+				<HBox renderType="Bare">
+					<Select id="idRollingPlanSelect" items="{path:'/rollingPlanVariantSet', suspended: true}" width="100%" forceSelection="false" enabled="{= !${RollingPlanModel>/New}}"
+						change="loadRollingPlan" selectedKey="{RollingPlanModel>/PlanId}">
+						<core:Item key="{PlanId}"
+							text="{path: 'Begda',type:'sap.ui.model.type.Date',formatOptions:{style:'short'}} - {path: 'Endda',type:'sap.ui.model.type.Date',formatOptions:{style:'short'}}" />
+					</Select>
+					<Button press="onRollingPlanVariantDelete" icon="sap-icon://delete" class="sapUiTinyMarginBegin" enabled="{= ${RollingPlanModel>/PlanId} !== ''}"/>
+				</HBox>
+			</VBox>
+			<VBox class="sapUiSmallMargin" visible="{= !${RollingPlanModel>/New} &amp;&amp; ${RollingPlanModel>/PlanId}.length > 0}">
+				<Label text="{i18n>date-range}" />
+				<DateRangeSelection id="idDateRangeUpdateAllowance" dateValue="{RollingPlanModel>/BegdaUpd}" secondDateValue="{RollingPlanModel>/EnddaUpd}" 
+					change="onDateRangeUpdateChange" valueState="{RollingPlanModel>/bDateRangeErrorState}" valueStateText="{RollingPlanModel>/bDateRangeErrorText}"/>
+			</VBox>
+			<List id="idRollPlanEmployees" headerText="{i18n>employeetext}" items="{path:'/rollingPlanSet',suspended:true}" visible="{= !${RollingPlanModel>/New} &amp;&amp; ${RollingPlanModel>/PlanId}.length > 0}">
+				<InputListItem label="{Name}">
+					<Select items="{/qualificationSet}" forceSelection="false" selectedKey="{QualId}">
+						<core:Item text="{QualText}" key="{QualId}" />
+					</Select>
+				</InputListItem>
+			</List>
+			<List id="idRollPlanEmployeesNew" headerText="{i18n>employeetext}" items="{RollingPlanModel>/NewSet}" visible="{RollingPlanModel>/New}">
+				<InputListItem label="{RollingPlanModel>Name}">
+					<Select items="{/qualificationSet}" forceSelection="false" selectedKey="{RollingPlanModel>QualId}">
+						<core:Item text="{QualText}" key="{QualId}" />
+					</Select>
+				</InputListItem>
+			</List>
+		</content>
+		<buttons>
+			<Button text="{i18n>btncopy}" press="copyRollingPlan" visible="{= !${RollingPlanModel>/New}}"/>
+			<Button text="{i18n>save}" press="saveRollingPlan" tooltip="{i18n>ttsave}" />
+			<Button text="{i18n>close}" press="closeRollingPlan" tooltip="{i18n>ttclose}" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

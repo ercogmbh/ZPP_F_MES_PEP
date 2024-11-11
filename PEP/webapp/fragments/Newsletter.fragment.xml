@@ -1,0 +1,105 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>newsletter}" contentWidth="800px" draggable="true" resizable="true">
+		<content>
+			<OverflowToolbar>
+				<content>
+					<Title text="Mails" level="H1" class="sapUiSmallMarginBegin"/>
+					<ToolbarSpacer/>
+					<Button text="{i18n>deletemail}" tooltip="{i18n>ttdeletemail}" type="Reject" press="onRemoveNewsletter"/>
+				</content>
+			</OverflowToolbar>
+			<HBox renderType="Bare">
+				<ScrollContainer height="440px" width="100%" vertical="true" class="sapUiTinyMarginEnd">
+					<List id="vb_mails" items="{path: '/newsletterSet', suspended : true}" mode="MultiSelect">
+						<items>
+							<StandardListItem title="{= ${Name} ? ${Name} + ' - ' : ''}{Mail}" highlight="{= !${IsCustomMail} ? 'Indication05' : 'None'}"/>
+						</items>
+					</List>
+				</ScrollContainer>
+				<VBox width="30%" class="sapUiTinyMarginTop">
+					<layoutData>
+						<l:GridData span="XL4 L4 M4 S12"/>
+					</layoutData>
+					<Label text="{i18n>chooseweeks}"></Label>
+					<RadioButtonGroup id="rbg_timeFrame" selectedIndex="{NewsletterModel>/RadioIndex}">
+						<RadioButton text="{i18n>1week}" selected="true" tooltip="{i18n>tt1week}">
+							<customData>
+								<core:CustomData key="weeks" value="1"></core:CustomData>
+							</customData>
+						</RadioButton>
+						<RadioButton text="{i18n>2week}" tooltip="{i18n>tt2week}">
+							<customData>
+								<core:CustomData key="weeks" value="2"></core:CustomData>
+							</customData>
+						</RadioButton>
+						<RadioButton text="{i18n>4week}" tooltip="{i18n>tt4week}">
+							<customData>
+								<core:CustomData key="weeks" value="4"></core:CustomData>
+							</customData>
+						</RadioButton>
+						<RadioButton text="{i18n>otherweeks}" tooltip="{i18n>ttotherweeks}">
+							<customData>
+								<core:CustomData key="weeks" value="0"></core:CustomData>
+							</customData>
+						</RadioButton>
+					</RadioButtonGroup>
+					<!--<Input value="{NewsletterModel>/CustomWeekCount}"/>-->
+					<StepInput value="{NewsletterModel>/CustomWeekCount}" enabled="{= ${NewsletterModel>/RadioIndex} === 3}" description="{i18n>weeks}"
+						textAlign="Center" min="1"/>
+				</VBox>
+			</HBox>
+			<!--<f:SimpleForm id="sf_selectmails" layout="ResponsiveGridLayout" editable="true" labelSpanL="1" labelSpanXL="1" labelSpanM="2"
+				labelSpanS="12">
+				<f:content>
+					<HBox>
+						<layoutData>
+							<l:GridData span="XL12 L12 M12 S12"/>
+						</layoutData>
+						<VBox width="70%">
+							<layoutData>
+								<l:GridData span="XL8 L8 M8 S12"/>
+							</layoutData>
+							<Label text="{i18n>employeetext}"></Label>
+							<CheckBox id="selectAll" select="selectDeselectAllNewsletter" text="{i18n>selectall}"></CheckBox>
+							<HBox>
+								<VBox id="vb_mails"></VBox>
+							</HBox>
+						</VBox>
+						<VBox width="30%">
+							<layoutData>
+								<l:GridData span="XL4 L4 M4 S12"/>
+							</layoutData>
+							<Label text="{i18n>chooseweeks}"></Label>
+							<RadioButtonGroup id="rbg_timeFrame">
+								<RadioButton text="{i18n>1week}" selected="true" tooltip="{i18n>tt1week}">
+									<customData>
+										<core:CustomData key="weeks" value="1"></core:CustomData>
+									</customData>
+								</RadioButton>
+								<RadioButton text="{i18n>2week}" tooltip="{i18n>tt2week}">
+									<customData>
+										<core:CustomData key="weeks" value="2"></core:CustomData>
+									</customData>
+								</RadioButton>
+								<RadioButton text="{i18n>4week}" tooltip="{i18n>tt4week}">
+									<customData>
+										<core:CustomData key="weeks" value="4"></core:CustomData>
+									</customData>
+								</RadioButton>
+							</RadioButtonGroup>
+						</VBox>
+					</HBox>
+				</f:content>
+			</f:SimpleForm>-->
+			<f:SimpleForm id="sf_newmails" title="{i18n>newrecipient}" layout="ResponsiveGridLayout" editable="true" labelSpanL="6" labelSpanXL="6"
+				labelSpanM="6" labelSpanS="6"></f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="btn_newsletter_send" text="{i18n>send}" tooltip="{i18n>send}" press="sendNewsletter"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeNewsletterPopUp" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

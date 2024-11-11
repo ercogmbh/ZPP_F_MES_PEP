@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>employeedata}" id="dialog_employeeData" draggable="true" resizable="true" stretch="false">
+		<f:SimpleForm id="sf_formEmployeeData" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="6" labelSpanL="6" labelSpanM="6"
+			labelSpanS="6" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"></f:SimpleForm>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseEmpDataDialog"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,117 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>maintaindemand}" draggable="true" resizable="true" stretch="true">
+		<content>
+			<Table id="tbl_demand_shiftgroupforman" sticky="HeaderToolbar,ColumnHeaders">
+				<headerToolbar>
+					<Toolbar>
+						<DateRangeSelection width="250px" change="getShiftData" dateValue="{path:'ManDemandModel>/Begda'}" 
+							secondDateValue="{path:'ManDemandModel>/Endda'}"/>
+						<Select width="150px" change="onManDemandShiftChange" items="{/dmandShiftSet}" selectedKey="{ManDemandModel>/ShiftKey}">
+							<core:ListItem text="{Descr}" key="{Key}"></core:ListItem>
+						</Select>
+						<!--<CheckBox text="{i18n>overload}" selected="{/unitShift/Overwrite}" class="sapUiTinyMarginBegin" />-->
+						<ToolbarSpacer />
+						<!--<Button text="{i18n>addday}" press="onAddDemandDay" type="Emphasized" icon="sap-icon://add"/>-->
+						<!--<Button text="{i18n>adddayfromold}" press="onAddDemandDayFromLast" type="Emphasized" icon="sap-icon://copy"/>-->
+						<Button text="{i18n>txtsave}" press="saveManShifts" type="Emphasized" icon="sap-icon://save"/>
+						<Button text="{i18n>discard}" press="onDiscardManShifts" type="Emphasized" icon="sap-icon://cancel"/>
+					</Toolbar>
+				</headerToolbar>
+				<layoutData>
+					<l:GridData span="XL12 L12 M12 S12"/>
+				</layoutData>
+				<columns>
+					<Column width="5%">
+						<Text text="{i18n>day}"></Text>
+					</Column>
+					<Column width="3%">
+						<Text text=""></Text>
+					</Column>
+					<Column width="20%">
+						<Text text="{i18n>stchangequal}"></Text>
+					</Column>
+					<Column width="5%">
+						<Text text=""></Text>
+					</Column>
+					<Column width="10%" visible="{=${ManDemandModel>/ShiftKey} > 0}">
+						<Text text="{i18n>demand1}"></Text>
+					</Column>
+					<Column width="10%" visible="{=${ManDemandModel>/ShiftKey} > 1}">
+						<Text text="{i18n>demand2}"></Text>
+					</Column>
+					<Column width="10%" visible="{=${ManDemandModel>/ShiftKey} > 2}">
+						<Text text="{i18n>demand3}"></Text>
+					</Column>
+					<Column width="10%" visible="{=${ManDemandModel>/ShiftKey} > 3}">
+						<Text text="{i18n>demand4}"></Text>
+					</Column>
+				</columns>
+				<dependents>
+					<ColumnListItem id="demandTableShiftGroupForManTemplate">
+						<cells>
+							<VBox>
+								<Text text="{path:'ManDemandModel>Date',type:'sap.ui.model.type.Date',formatOptions:{style:'short'}}"/>
+								<Select width="150px" change="onManDemandShiftChange" items="{/dmandShiftSet}" selectedKey="{ManDemandModel>/ShiftKey}">
+									<core:ListItem text="{Descr}" key="{Key}"></core:ListItem>
+								</Select>
+							</VBox>
+							<Button icon="sap-icon://add" visible="true" press="onAddDemandQualForMan"></Button>
+							<FlexBox direction="Column" items="{ManDemandModel>navdmandSet/results}">
+								<items>
+									<ComboBox width="100%" items="{ManDemandModel>/qualifications}" selectedKey="{ManDemandModel>QualId}">
+										<core:ListItem key="{ManDemandModel>QualId}" text="{ManDemandModel>QualId} - {ManDemandModel>QualText}"></core:ListItem>
+									</ComboBox>
+								</items>
+							</FlexBox>
+							<FlexBox direction="Column" items="{ManDemandModel>navdmandSet/results}">
+								<items>
+									<Button icon="sap-icon://delete" press="onDeleteDemandQualForMan"></Button>
+								</items>
+							</FlexBox>
+							<VBox items="{ManDemandModel>navdmandSet/results}">
+								<items>
+									<HBox alignItems="Center">
+										<Input value="{ManDemandModel>DemandMan1}" type="Number" editable="false" width="50px" class="sapUiTinyMarginEnd" />
+										<Input value="{ManDemandModel>DemandImp1}" type="Number" width="50px" class="sapUiTinyMarginEnd" />
+										<Text text="{ManDemandModel>Group1}" visible="{= ${ManDemandModel>Group1} !== 0}" width="50px" />
+									</HBox>
+								</items>
+							</VBox>
+							<VBox items="{ManDemandModel>navdmandSet/results}">
+								<items>
+									<HBox alignItems="Center">
+										<Input value="{ManDemandModel>DemandMan2}" type="Number" editable="false" width="50px" class="sapUiTinyMarginEnd" />
+										<Input value="{ManDemandModel>DemandImp2}" type="Number" width="50px" class="sapUiTinyMarginEnd" />
+										<Text text="{ManDemandModel>Group2}" visible="{= ${ManDemandModel>Group2} !== 0}" width="50px" />
+									</HBox>
+								</items>
+							</VBox>
+							<VBox items="{ManDemandModel>navdmandSet/results}">
+								<items>
+									<HBox alignItems="Center">
+										<Input value="{ManDemandModel>DemandMan3}" type="Number" editable="false" width="50px" class="sapUiTinyMarginEnd" />
+										<Input value="{ManDemandModel>DemandImp3}" type="Number" width="50px" class="sapUiTinyMarginEnd" />
+										<Text text="{ManDemandModel>Group3}" visible="{= ${ManDemandModel>Group3} !== 0}" width="50px" />
+									</HBox>
+								</items>
+							</VBox>
+							<VBox items="{ManDemandModel>navdmandSet/results}">
+								<items>
+									<HBox alignItems="Center">
+										<Input value="{ManDemandModel>DemandMan4}" type="Number" editable="false" width="50px" class="sapUiTinyMarginEnd" />
+										<Input value="{ManDemandModel>DemandImp4}" type="Number" width="50px" class="sapUiTinyMarginEnd" />
+										<Text text="{ManDemandModel>Group4}" visible="{= ${ManDemandModel>Group4} !== 0}" width="50px" />
+									</HBox>
+								</items>
+							</VBox>
+						</cells>
+					</ColumnListItem>
+				</dependents>
+			</Table>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="onCloseMaintainDemand3" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,286 @@
+/* Enter your custom styles here */
+@import url("tinyuicss.css");
+
+span[data-background] {
+    background-color: data-background;
+}
+
+li[data-backgroundqual] {
+    background-color: data-backgroundqual;
+}
+
+
+/* Custom styles for different layouts when changing row height BEGIN */
+/*.sapUiSizeCondensed .sapUiTableDataCell>.sapUiTableCellInner>*,*/
+/*.sapUiSizeCondensed .sapUiTableCreationRow .sapUiTableCreationRowForm .sapUiTableCell>.sapUiTableCellInner>* {*/
+/*    box-sizing: border-box;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.sapUiSizeCondensed .sapMComboBoxTextFieldInner:not(.sapMComboBoxTextFieldInnerReadonly) {*/
+/*    padding-right: 1rem;*/
+/*}*/
+
+/*.sapUiSizeCompact .sapMInputBaseHasBeginIcons .sapMInputBaseInner {*/
+/*    width: calc(100% - 1rem);*/
+/*}*/
+
+/*.sapUiSizeCozy .sapMInputBaseHasBeginIcons .sapMInputBaseInner {*/
+/*    width: calc(100% - 1rem);*/
+/*}*/
+
+/*.sapUiSizeCondensed .sapMInputBaseHasBeginIcons .sapMInputBaseInner {*/
+/*    width: calc(100% - 1rem);*/
+/*}*/
+
+/*.sapUiSizeCompact .sapMComboBoxTextFieldArrow {*/
+/*    width: 1rem;*/
+/*}*/
+
+/*.sapUiSizeCondensed .sapMComboBoxTextFieldArrow {*/
+/*    width: 1rem;*/
+/*}*/
+
+/*.sapUiSizeCompact .sapMComboBoxTextFieldInner:not(.sapMComboBoxTextFieldInnerReadonly) {*/
+/*    padding-right: 1rem;*/
+/*}*/
+
+/*.sapUiSizeCozy .sapMComboBoxTextFieldInner:not(.sapMComboBoxTextFieldInnerReadonly) {*/
+/*    padding-right: 1rem;*/
+/*}*/
+
+/*.sapUiSizeCozy .sapMComboBoxTextFieldArrow {*/
+/*    width: 1rem;*/
+/*}*/
+
+/* Custom styles for different layouts when changing row height END */
+
+.myVeryCompactTable .sapUiTableCellInner {
+    padding: 0;
+}
+
+.topCol {
+    border-left: 100px solid
+}
+
+.sapUiTableColCell {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}
+
+.sapUiTableCell {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+}
+
+.sapMFlexBox {
+    padding-right: 0.5rem;
+}
+
+.sapMButtonText>.sapMBtnInner.sapMBtnText {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* UI Table inner elements */
+.narrowTable .sapUiTableCCnt .sapMComboBoxTextField {
+    height: 1.75rem;
+}
+
+.narrowTable .sapUiTableCCnt .sapMBtn {
+    height: 1.75rem;
+    padding: 0;
+}
+
+.narrowTable .sapUiTableCCnt .sapMBtnInner {
+    height: 1.75rem;
+/*    min-width: 0.1rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;*/
+}
+
+.narrowTable .sapUiTableCCnt .sapMInputBaseInner {
+    padding: 0rem;
+    min-width: 0rem;
+    padding-left: 0.3rem;
+}
+
+.narrowTable .sapUiTableCCnt .sapMInputBaseIcon {
+    width: 1rem;
+    min-width: 1rem;
+}
+
+.narrowTable .btnText .sapMButtonText>.sapMBtnInner.sapMBtnText {
+    font-weight: bold;
+    color: black;
+}
+
+.narrowTable .sapUiTableCCnt .sapMBtnContent {
+    line-height: 1.75rem;
+}
+
+.narrowTable .sapUiTableCCnt .sapMBtnIcon {
+    line-height: 1.5rem;
+    color: black;
+}
+
+/* UI Table inner END*/
+
+/* UI Normal Table inner elements */
+.normalTable .sapUiTableCCnt .sapMComboBoxTextField {
+    height: 2rem;
+}
+
+.normalTable .sapUiTableCCnt .sapMBtn {
+    height: 2rem;
+    padding: 0;
+}
+
+.normalTable .sapUiTableCCnt .sapMBtnInner {
+    height: 2rem;
+/*    min-width: 0.1rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;*/
+}
+
+.normalTable .sapUiTableCCnt .sapMInputBaseInner {
+    padding: 0rem;
+    min-width: 0rem;
+    padding-left: 0.3rem;
+}
+
+.normalTable .sapUiTableCCnt .sapMInputBaseIcon {
+    width: 1rem;
+    min-width: 1rem;
+}
+
+.normalTable .btnText .sapMButtonText>.sapMBtnInner.sapMBtnText {
+    font-weight: bold;
+    color: black;
+}
+
+.normalTable .sapUiTableCCnt .sapMBtnContent {
+    line-height: 2rem;
+}
+
+.normalTable .sapUiTableCCnt .sapMBtnIcon {
+    line-height: 2rem;
+    color: black;
+}
+
+/* UI Normal Table inner END*/
+
+/* UI Wide Table inner elements */
+.wideTable .sapUiTableCCnt .sapMComboBoxTextField {
+    height: 2.375rem;
+}
+
+.wideTable .sapUiTableCCnt .sapMBtn {
+    height: 2.375rem;
+    padding: 0;
+}
+
+.wideTable .sapUiTableCCnt .sapMBtnInner {
+    height: 2.375rem;
+/*    min-width: 0.1rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;*/
+}
+
+.wideTable .sapUiTableCCnt .sapMInputBaseInner {
+    padding: 0rem;
+    min-width: 0rem;
+    padding-left: 0.3rem;
+}
+
+.wideTable .sapUiTableCCnt .sapMInputBaseIcon {
+    width: 1rem;
+    min-width: 1rem;
+}
+
+.wideTable .btnText .sapMButtonText>.sapMBtnInner.sapMBtnText {
+    font-weight: bold;
+    color: black;
+}
+
+.wideTable .sapUiTableCCnt .sapMBtnContent {
+    line-height: 2.375rem;
+}
+
+.wideTable .sapUiTableCCnt .sapMBtnIcon {
+    line-height: 2.375rem;
+    color: black;
+}
+
+/* UI Wide Table inner END*/
+
+.sapMPanelHdr {
+    line-height: 2rem;
+}
+
+.sapMPanelContent {
+    padding: 0rem;
+}
+
+.sapMPanelHdr {
+    line-height: 2rem;
+}
+
+.sapUxAPObjectPageHeaderContentDesign-Light,
+.sapUxAPObjectPageHeaderContentDesign-Dark {
+    border-bottom-style: groove;
+    background-color: transparent;
+}
+
+.sapUxAPObjectPageLayout-Std-Desktop .sapUxAPObjectPageHeaderContent {
+    padding-left: 0rem;
+}
+
+.sapUxAPObjectPageHeaderContent .sapMSelect {
+    height: 2rem;
+}
+
+.sapUxAPObjectPageHeaderContent .sapMSlt,
+.sapUxAPObjectPageHeaderContent>.sapUxAPObjectPageHeaderSeparatorContainer .sapMSlt,
+.sapUxAPObjectPageHeaderContent>.sapUxAPObjectPageHeaderWidthContainer .sapMSlt {
+    height: 2.5rem;
+}
+
+.sapUxAPObjectPageHeaderContent .sapMSlt .sapMSltLabel,
+.sapUxAPObjectPageHeaderContent>.sapUxAPObjectPageHeaderSeparatorContainer .sapMSlt .sapMSltLabel,
+.sapUxAPObjectPageHeaderContent>.sapUxAPObjectPageHeaderWidthContainer .sapMSlt .sapMSltLabel {
+    line-height: 2.5rem;
+}
+
+.sapUxAPObjectPageHeaderContent .sapMSlt .sapMSltArrow,
+.sapUxAPObjectPageHeaderContent>.sapUxAPObjectPageHeaderSeparatorContainer .sapMSlt .sapMSltArrow,
+.sapUxAPObjectPageHeaderContent>.sapUxAPObjectPageHeaderWidthContainer .sapMSlt .sapMSltArrow {
+    line-height: 2.5rem;
+    width: 2.5rem;
+}
+
+.sapMLabel.sapMLabelWrapped {
+    white-space: pre;
+}
+
+.sapUiFormM:not(.sapUiFormEdit) .sapUiFormResGridCont>div {
+    padding-top: 0.25rem;
+    padding-bottom: 0;
+    font-size: 1px;
+}
+
+.sapUiFormM:not(.sapUiFormEdit) .sapUiFormResGridCont {
+    margin-top: -1.0rem;
+    padding-bottom: 2rem;
+}
+
+.sapMSliderTooltipContainer {
+    position: initial;
+}
+
+.selectedWeek {
+    background: #427cac;
+    color: #fff;
+}

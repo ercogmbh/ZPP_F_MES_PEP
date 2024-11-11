@@ -1,0 +1,155 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+	<Dialog title="{i18n>ttVerlehungnew}" id="add_Verleihungen" draggable="true" resizable="true" contentWidth="1700px"
+		class="sapUiResponsiveMargin">
+		<content>
+			<HBox class="sapUiResponsiveMargin" >
+				<VBox width="50%" >
+					<Button press="onEditVerleihung" text="{i18n>ttVerlehungnew2}"/>
+				</VBox>
+				<VBox width="20%" class="sapUiSmallMarginTop">
+					<Label text="{i18n>ttDateBisFrom}" width="200px"  />
+				</VBox>
+				<VBox width="30%">
+					<DateRangeSelection id="DRS12"/>
+				</VBox>
+			</HBox> 
+			<t:Table id="idVerleihungTableSender" class="sapUiResponsiveMargin" width="auto" selectionMode="None" 
+			visibleRowCount="{Customizing>/SenderRow}" >
+				<t:columns>
+					<t:Column width="100px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung01}"/>
+						<t:template>
+							<Text text="{Status}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="100px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung02}"/>
+						<t:template>
+							<Text text="{Meinerolle}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="300px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung03}"/>
+						<t:template>
+							<Text text="{MaName}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="140px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung04}"/>
+						<t:template>
+							<Text text="{Stammkostenstelle}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="120px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung05}"/>
+						<t:template>
+							<Text text="{Zielkostenstelle}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung06}"/>
+						<t:template>
+							<DatePicker id="Von" value="{VonDatum}" class="sapUiSmallMarginBottom" editable="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung07}"/>
+						<t:template>
+							<DatePicker id="Bis" value="{BisDatum}" class="sapUiSmallMarginBottom" editable="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung08}"/>
+						<t:template>
+							<Text text="{Stundenerstertag}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung09}"/>
+						<t:template>
+							<Text text="{Stundenletztertag}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="70px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung10}" />
+						<t:template>
+							<Button icon="sap-icon://edit" press="onEditVerleihungSender"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+			
+				<t:Table id="idVerleihungTableReciver" class="sapUiResponsiveMargin" width="auto"
+				         selectionMode="None" visibleRowCount="{Customizing>/ReceiverRow}" >
+				<t:columns>
+					<t:Column width="100px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung01}"/>
+						<t:template>
+							<Text text="{Status}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="100px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung02}"/>
+						<t:template>
+							<Text text="{Meinerolle}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="300px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung03}"/>
+						<t:template>
+							<Text text="{MaName}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="140px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung04}"/>
+						<t:template>
+							<Text text="{Stammkostenstelle}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="120px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung05}"/>
+						<t:template>
+							<Text text="{Zielkostenstelle}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung06}"/>
+						<t:template>
+							<DatePicker id="VonRec" value="{VonDatum}" class="sapUiSmallMarginBottom" editable="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung07}"/>
+						<t:template>
+							<DatePicker id="BisRec" value="{BisDatum}" class="sapUiSmallMarginBottom" editable="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung08}"/>
+						<t:template>
+							<Text text="{Stundenerstertag}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column width="150px" autoResizable="true" resizable="true">
+						<Label text="{i18n>ttVerleihung09}"/>
+						<t:template>
+							<Text text="{Stundenletztertag}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<!--<t:Column width="70px">-->
+					<!--	<Label text="{i18n>ttVerleihung10}" />-->
+					<!--	<t:template>-->
+					<!--		<Button icon="sap-icon://edit" press="onEditVerleihung"/>-->
+					<!--	</t:template>-->
+					<!--</t:Column>-->
+				</t:columns>
+			</t:Table>
+		</content>
+		<beginButton>
+			<Button id="btn_Verleihungen_save" text="{i18n>save}" tooltip="{i18n>ttsave}" press="saveNewTime"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>close}" press="closeVerleihungen" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

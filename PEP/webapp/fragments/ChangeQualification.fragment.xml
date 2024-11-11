@@ -1,0 +1,85 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout">
+	<Dialog id="dlg_changequal" title="{i18n>changequal}">
+		<content>
+			<f:SimpleForm id="sF_changeunit_data" title="" editable="true" layout="ResponsiveGridLayout">
+				<f:content>
+					<Select id="ld_select_cq_employee" change="reloadNewQualification">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12"/>
+						</layoutData>
+					</Select>
+					<DatePicker id="ld_dp_cd_begda" placeholder="{i18n>validfrom}" change="bindNewQualificationTable">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12"/>
+						</layoutData>
+					</DatePicker>
+					<DatePicker id="ld_dp_cd_endda" placeholder="{i18n>validto}" change="bindNewQualificationTable">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12"/>
+						</layoutData>
+					</DatePicker>
+					<ComboBox id="ld_select_cd_qualification" selectionChange="bindRatingToPicker">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12"/>
+						</layoutData>
+					</ComboBox>
+					<Select id="ld_select_cd_rating">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12"/>
+						</layoutData>
+					</Select>
+					<Button id="btn_cd_save" press="createNewQualification" text="{i18n>save}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12" linebreak="true"/>
+						</layoutData>
+					</Button>
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm title="" layout="ResponsiveGridLayout">
+				<f:content>
+					<t:Table id="ld_tbl_cd_overview" selectionMode="Single" selectionBehavior="Row">
+						<t:columns>
+							<t:Column id="c_cd_qual">
+								<Label text="{i18n>employeequal}" tooltip="{i18n>employeequal}"/>
+								<t:template>
+									<Text text="{QualText} ({QualAbbr})" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column id="c_cd_rating">
+								<Label text="{i18n>rating}" tooltip="{i18n>rating}"/>
+								<t:template>
+									<Text text="{RatingText}" wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column id="c_cd_validfrom">
+								<Label text="{i18n>validfrom}" tooltip="{i18n>ttvalidfrom}"/>
+								<t:template>
+									<Text text="{path : 'Begda', type : 'sap.ui.model.type.Date'}"/>
+								</t:template>
+							</t:Column>
+							<t:Column id="c_cd_validto">
+								<Label text="{i18n>validto}" tooltip="{i18n>ttvalidto}"/>
+								<t:template>
+									<Text text="{path : 'Endda', type : 'sap.ui.model.type.Date'}"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm title="" layout="ResponsiveGridLayout">
+				<f:content>
+					<Button id="btn_cd_delete" press="deleteNewQualification" text="{i18n>delete}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M4 S12" linebreak="true"/>
+						</layoutData>
+					</Button>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="{i18n>close}" press="closeMaintQualDialog" tooltip="{i18n>ttclose}"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
