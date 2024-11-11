@@ -1,0 +1,299 @@
+{
+    "resources": [
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/FragmentCyclicLeave-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/FragmentCyclicLeave.js"
+        },
+        {
+            "name": "controller/FragmentExportRosterPDF-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/FragmentExportRosterPDF.js"
+        },
+        {
+            "name": "controller/FragmentQualPick-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/FragmentQualPick.js"
+        },
+        {
+            "name": "controller/FragmentSelectEmployee-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/FragmentSelectEmployee.js"
+        },
+        {
+            "name": "controller/Main-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Main.controller.js"
+        },
+        {
+            "name": "controls/customTable-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controls/customTable.js"
+        },
+        {
+            "name": "css/style-dbg.css",
+            "isDebug": true
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "css/tinyuicss-dbg.css",
+            "isDebug": true
+        },
+        {
+            "name": "css/tinyuicss.css"
+        },
+        {
+            "name": "fragments/AbsencePick.fragment.xml"
+        },
+        {
+            "name": "fragments/ChangeDefaultQualification.fragment.xml"
+        },
+        {
+            "name": "fragments/ChangePlanTimes.fragment.xml"
+        },
+        {
+            "name": "fragments/ChangeQualification.fragment.xml"
+        },
+        {
+            "name": "fragments/ChangeUnit.fragment.xml"
+        },
+        {
+            "name": "fragments/CicoCreate.fragment.xml"
+        },
+        {
+            "name": "fragments/ColorLegend.fragment.xml"
+        },
+        {
+            "name": "fragments/Comments.fragment.xml"
+        },
+        {
+            "name": "fragments/CyclicLeave.fragment.xml"
+        },
+        {
+            "name": "fragments/EmployeeData.fragment.xml"
+        },
+        {
+            "name": "fragments/EmployeeSort.fragment.xml"
+        },
+        {
+            "name": "fragments/ExportRosterPDF.fragment.xml"
+        },
+        {
+            "name": "fragments/FavoriteFeatures.fragment.xml"
+        },
+        {
+            "name": "fragments/FormDownload.fragment.xml"
+        },
+        {
+            "name": "fragments/FormTimeStatementCreate.fragment.xml"
+        },
+        {
+            "name": "fragments/HideShowColumns.fragment.xml"
+        },
+        {
+            "name": "fragments/LeaveCreate.fragment.xml"
+        },
+        {
+            "name": "fragments/Log.fragment.xml"
+        },
+        {
+            "name": "fragments/MaintainDemand.fragment.xml"
+        },
+        {
+            "name": "fragments/MaintainDemandShiftGroup.fragment.xml"
+        },
+        {
+            "name": "fragments/MaintainDemandShiftGroupForMan.fragment.xml"
+        },
+        {
+            "name": "fragments/Newsletter.fragment.xml"
+        },
+        {
+            "name": "fragments/OvertimeCreate.fragment.xml"
+        },
+        {
+            "name": "fragments/PlanEmpExcelCreate.fragment.xml"
+        },
+        {
+            "name": "fragments/PlanExcelCreate.fragment.xml"
+        },
+        {
+            "name": "fragments/PoolEmployee.fragment.xml"
+        },
+        {
+            "name": "fragments/QualPick.fragment.xml"
+        },
+        {
+            "name": "fragments/RollingPlan.fragment.xml"
+        },
+        {
+            "name": "fragments/RpTime.fragment.xml"
+        },
+        {
+            "name": "fragments/SearchEmployee.fragment.xml"
+        },
+        {
+            "name": "fragments/SelectDropdowns.fragment.xml"
+        },
+        {
+            "name": "fragments/SelectEmployee.fragment.xml"
+        },
+        {
+            "name": "fragments/ShiftSubstitution.fragment.xml"
+        },
+        {
+            "name": "fragments/TimesOverview.fragment.xml"
+        },
+        {
+            "name": "fragments/VerleihungAnlegen.fragment.xml"
+        },
+        {
+            "name": "fragments/Werkerverleihung.fragment.xml"
+        },
+        {
+            "name": "fragments/addNewBusinessTime.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/main.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/absence.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/allowance.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/cico.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/overtime.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/shift.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/timereport.fragment.xml"
+        },
+        {
+            "name": "fragments/timesoverview/sections/timetransfer.fragment.xml"
+        },
+        {
+            "name": "i18n/i18n_de.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_de"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties",
+            "locale": "_en"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/Comments.json"
+        },
+        {
+            "name": "model/TimStatView.json"
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "model/searchedEmployee.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "sap-ui-cachebuster-info.json"
+        },
+        {
+            "name": "serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "utils/DataUtil-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/DataUtil.js"
+        },
+        {
+            "name": "utils/Formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/Formatter.js"
+        },
+        {
+            "name": "utils/Helper-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/Helper.js"
+        },
+        {
+            "name": "utils/Rptime-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/Rptime.js"
+        },
+        {
+            "name": "utils/Tables-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/Tables.js"
+        },
+        {
+            "name": "utils/TimesOverview-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "utils/TimesOverview.js"
+        },
+        {
+            "name": "view/Main.view.xml"
+        }
+    ]
+}

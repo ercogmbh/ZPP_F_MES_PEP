@@ -1,0 +1,33 @@
+specVersion: "3.1"
+metadata:
+  name: mind2pep_planner
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://saps41.erco.com:8000/
+            client: "110"
+            destination: S41
+            authenticationType: NoAuthentication
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+          version: 1.71.36
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: MIND2PEP_PLANNER
+        ui5Theme: sap_fiori_3

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="MIND2_PEP_YEAR_SRV" xml:lang="de" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Unit" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitKey"/>
+                </Key>
+                <Property Name="UnitKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Unit-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Text zu einer Einheit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SpecialEvent" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Eventkey"/>
+                </Key>
+                <Property Name="Eventkey" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Unit-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Gültig ab" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Gültig bis" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EventText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Text in der Länge 40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Employee" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmpId"/>
+                </Key>
+                <Property Name="Begda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Characterfeld der Länge 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mitarbeiter oder Dummy ID für Planner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SpecialEntry" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Flag (X oder Blank)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Characterfeld der Länge 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name MA/Bew." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Unit-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Subtitle" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Text in der Länge 40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Appointment" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmpId"/>
+                    <PropertyRef Name="Begda"/>
+                    <PropertyRef Name="Endda"/>
+                </Key>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mitarbeiter oder Dummy ID für Planner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Unit-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Gültig ab" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Gültig bis" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppTitel" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Text in der Länge 40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Text in der Länge 40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppColor" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false" sap:label="Farbwert" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Absence" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LeaveKey"/>
+                </Key>
+                <Property Name="Beguz" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Overwrite" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sprps" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Sperrknz" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Infty" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Infotyp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mitarbeiter oder Dummy ID für Planner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Enduz" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LeaveKey" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Leave-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Unit-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Gültig ab" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Gültig bis" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Subty" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Subtyp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SubtyText" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Subtyp" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Subty"/>
+                </Key>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mitarbeiter oder Dummy ID für Planner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FeatureKey" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Text in der Länge 40" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ganztaegig" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="ganztägig" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Infty" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Infotyp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReasonMand" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="boolsche Variable (X=true, -=false, space=unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Unit-Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Subty" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Subtyp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SubtyText" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="AnAbArtText" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="MIND2_PEP_YEAR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="UnitSet" EntityType="MIND2_PEP_YEAR_SRV.Unit" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SpecialEventSet" EntityType="MIND2_PEP_YEAR_SRV.SpecialEvent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EmployeeSet" EntityType="MIND2_PEP_YEAR_SRV.Employee" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AppointmentSet" EntityType="MIND2_PEP_YEAR_SRV.Appointment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AbsenceSet" EntityType="MIND2_PEP_YEAR_SRV.Absence" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SubtypSet" EntityType="MIND2_PEP_YEAR_SRV.Subtyp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://saps41.erco.com:8000/sap/opu/odata/mind2/PEP_YEAR_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://saps41.erco.com:8000/sap/opu/odata/mind2/PEP_YEAR_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

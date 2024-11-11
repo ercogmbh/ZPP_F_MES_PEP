@@ -1,0 +1,44 @@
+specVersion: "3.1"
+metadata:
+  name: mind2pep_planner
+type: application
+framework:
+  name: SAPUI5
+  version: 1.79.0
+  libraries:
+    - name: sap.collaboration
+    - name: sap.m
+    - name: sap.ui.comp
+    - name: sap.ui.core
+    - name: sap.ui.layout
+    - name: sap.ui.table
+    - name: sap.ushell
+    - name: sap.uxap
+    - name: sap.f
+    - name: sap.ui.generic.app
+    - name: themelib_sap_belize
+    - name: themelib_sap_bluecrystal
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://saps41.erco.com:8000/
+            client: "110"
+            destination: S41
+            authenticationType: NoAuthentication
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: MIND2PEP_PLANNER
+        ui5Theme: sap_fiori_3
