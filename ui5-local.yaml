@@ -27,10 +27,9 @@ server:
         ignoreCertError: false
         backend:
           - path: /sap
-            url: http://saps41.erco.com:8000/
+            url: http://sapcvi.erco.com:8000/
             client: "110"
-            destination: S41
-            authenticationType: NoAuthentication
+            destination: CVI
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

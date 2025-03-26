@@ -347,7 +347,7 @@ sap.ui.define([
 				}
 			}
 
-			//Wenn NewTprog keinen Wert hat und eigene Zeiten gefüllt sind, sind individuelle Schichtzeiten hinterlegt
+			//Wenn NewTprog keinen Wert hat und eigene Zeiten gefÃ¼llt sind, sind individuelle Schichtzeiten hinterlegt
 			if (oContext.getProperty("SubstTprog") === "****") {
 				this.toggleEnabledShiftInput(true);
 				oChbOwnShift.setSelected(true);
@@ -417,7 +417,7 @@ sap.ui.define([
 				oShiftSelect.setEnabled(true);
 				oSaveBtn.setEnabled(false);
 				oPanel.setBusy(false);
-				//Wenn weder NewTprog gefüllt und keine eigenen Zeiten hinterlegt hat der MA keine Schichtvertretung
+				//Wenn weder NewTprog gefÃ¼llt und keine eigenen Zeiten hinterlegt hat der MA keine Schichtvertretung
 			} else {
 				this.toggleEnabledShiftInput(false);
 				// oBeguzBreak1.setValue();
@@ -1730,7 +1730,7 @@ sap.ui.define([
 
 			var vVaria = this._controller.getView().getModel().getProperty("Varia", oShiftSelect.getSelectedItem().getBindingContext());
 
-			//Prüfung: Wenn eigene Schichtzeit gewählt aber keine Uhrzeiten eingetragen:
+			//PrÃ¼fung: Wenn eigene Schichtzeit gewÃ¤hlt aber keine Uhrzeiten eingetragen:
 			if (vOwnShift && (vBeguzShift === "" || vEnduzShift === "")) {
 				if (vBeguzShift === "") {
 					oBeguzShift.setValueState(sap.ui.core.ValueState.Error);
@@ -1740,7 +1740,7 @@ sap.ui.define([
 				}
 				oPanelShift.setBusy(false);
 
-				//Prüfung erfolgreich: Daten der eigenen Schichtzeit auslesen
+				//PrÃ¼fung erfolgreich: Daten der eigenen Schichtzeit auslesen
 			} else {
 				if (vOwnShift === true) {
 					vSubstTprog = "****";
@@ -2171,7 +2171,7 @@ sap.ui.define([
 		},
 		handleSuggestZulage: function (oEvent) {
 			var sTerm = oEvent.getParameter("suggestValue");
-			//Anpassung Suche abhängig von Mitarbeiter und Tag möglich Yannick Ruppert 04.03.20
+			//Anpassung Suche abhÃ¤ngig von Mitarbeiter und Tag mÃ¶glich Yannick Ruppert 04.03.20
 			// var oEmpSelect = sap.ui.getCore().byId("ld_select_emp");
 			// var vEmpId = oEmpSelect.getSelectedKey();
 			// var oEmpIdFilter = new sap.ui.model.Filter("EmpId", sap.ui.model.FilterOperator.EQ, vEmpId);
@@ -2181,12 +2181,12 @@ sap.ui.define([
 				vDateValue.setHours(12);
 			}
 			// var oDateFilter = new sap.ui.model.Filter("Datum", sap.ui.model.FilterOperator.EQ, vDateValue);
-			//Ende Anpassung, unten werden noch die Filter zum Filterarray hinzugefügt
+			//Ende Anpassung, unten werden noch die Filter zum Filterarray hinzugefÃ¼gt
 
 			var aFilters = [];
 			if (sTerm) {
 				aFilters.push(new sap.ui.model.Filter("Zulage", sap.ui.model.FilterOperator.StartsWith, sTerm));
-				//Anpassung Filter hinzufügen
+				//Anpassung Filter hinzufÃ¼gen
 				// aFilters.push(oEmpIdFilter);
 				// aFilters.push(oDateFilter);
 				//Ende Anpassung

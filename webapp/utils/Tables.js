@@ -213,7 +213,7 @@ sap.ui.define([
 				oBegda.setUTCDate(oBegda.getDate());
 				oEndda.setUTCDate(oEndda.getDate());
 			}
-			//Wenn nur das Begindatum gewählt ist wollen wir keinen Aufruf ans Backend starten
+			//Wenn nur das Begindatum gewÃ¤hlt ist wollen wir keinen Aufruf ans Backend starten
 			if (oBegda && oEndda) {
 				var oFilter = new sap.ui.model.Filter("PlanDate", sap.ui.model.FilterOperator.BT, oBegda, oEndda);
 				var oUnitFilter = new sap.ui.model.Filter("UnitKey", sap.ui.model.FilterOperator.EQ, vUnitKey);
@@ -266,7 +266,7 @@ sap.ui.define([
 							//use <br> tags for line breaks
 							//example:
 							// oDateLabel.setHtmlText("<p style='text-align:center;font-weight:bold;margin-block-start:0px;margin-block-end:0px'>" + aData[i].LabelText +
-							// 	"<br>" + "Münster Geist" + "<br>" + "Frühtermin" + "</p>"); //use <br> tags for line breaks
+							// 	"<br>" + "MÃ¼nster Geist" + "<br>" + "FrÃ¼htermin" + "</p>"); //use <br> tags for line breaks
 						}
 
 						var oTemplate;
@@ -353,7 +353,7 @@ sap.ui.define([
 								},
 								visible: "{= !${readonly}}",
 								change: this.getView().getController().onCBSubmit.bind(this.getView().getController()),
-								width: "5rem" // ursprünglich 4rem
+								width: "5rem" // ursprÃ¼nglich 4rem
 							});
 
 							this.getView().getController()._oDataUtil.getItems(aData[i].FieldKey, vUnitKey, oTemplate).then(function (oResult) {

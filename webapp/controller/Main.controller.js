@@ -111,7 +111,7 @@ sap.ui.define([
 		getUnits: function () {
 			var oModel = this.getView().getModel();
 			var dPlanBegda = this.getSelectedBegda();
-			//Wenn dPlanBegda nicht gef¸llt, ist der Kalender noch nicht initialisiert.
+			//Wenn dPlanBegda nicht gef√ºllt, ist der Kalender noch nicht initialisiert.
 			//test change for igor
 			if (!dPlanBegda) {
 				dPlanBegda = new Date();
@@ -3920,7 +3920,7 @@ sap.ui.define([
 			var oDataModel = this._oNewsletterDialog.getModel('NewsletterModel');
 			var vUnitKey = Helper.getCustomDataValue(this._oNewsletterDialog.getAggregation("customData"), "UnitKey");
 
-			//Validierung der eingegeben Mails bevor der Mailversand angestoﬂen wird
+			//Validierung der eingegeben Mails bevor der Mailversand angesto√üen wird
 			var email;
 			var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
 			for (var k = 0; k < oSF.getContent().length; k++) {
@@ -5502,7 +5502,7 @@ sap.ui.define([
 
 		handleSuggestZulage: function (oEvent) {
 			var sTerm = oEvent.getParameter("suggestValue");
-			//Anpassung Suche abh‰ngig von Mitarbeiter und Tag mˆglich Yannick Ruppert 04.03.20
+			//Anpassung Suche abh√§ngig von Mitarbeiter und Tag m√∂glich Yannick Ruppert 04.03.20
 			//			var oEmpSelect = sap.ui.getCore().byId("ld_select_emp");
 			//			var vEmpId = oEmpSelect.getSelectedKey();
 			//			var oEmpIdFilter = new sap.ui.model.Filter("EmpId", sap.ui.model.FilterOperator.EQ, vEmpId);*/
@@ -5512,12 +5512,12 @@ sap.ui.define([
 				vDateValue.setHours(12);
 			}
 			//			var oDateFilter = new sap.ui.model.Filter("Datum", sap.ui.model.FilterOperator.EQ, vDateValue);*/
-			//Ende Anpassung, unten werden noch die Filter zum Filterarray hinzugef¸gt
+			//Ende Anpassung, unten werden noch die Filter zum Filterarray hinzugef√ºgt
 
 			var aFilters = [];
 			if (sTerm) {
 				aFilters.push(new sap.ui.model.Filter("Zulage", sap.ui.model.FilterOperator.StartsWith, sTerm));
-				//Anpassung Filter hinzuf¸gen
+				//Anpassung Filter hinzuf√ºgen
 				//				aFilters.push(oEmpIdFilter);
 				//				aFilters.push(oDateFilter);
 				//Ende Anpassung
@@ -5754,8 +5754,8 @@ sap.ui.define([
 				});
 				oPanel.setBusy(true);
 
-				//AGC03042019 Yannick Ruppert, Schichten sind vom Personalteilbereich der MA abh‰ngig, daher wird die EmpId des
-				//ausgew‰hlten Mitarbeiters mitgegeben (Hinzuf¸gen des Filters)
+				//AGC03042019 Yannick Ruppert, Schichten sind vom Personalteilbereich der MA abh√§ngig, daher wird die EmpId des
+				//ausgew√§hlten Mitarbeiters mitgegeben (Hinzuf√ºgen des Filters)
 				var oEmpIdFilter = new sap.ui.model.Filter("EmpId", sap.ui.model.FilterOperator.EQ, vEmpId);
 				var oUnitKeyFilter = new sap.ui.model.Filter("UnitKey", sap.ui.model.FilterOperator.EQ, vUnitKey);
 
@@ -5872,7 +5872,7 @@ sap.ui.define([
 				}
 			}
 
-			//Wenn NewTprog keinen Wert hat und eigene Zeiten gef¸llt sind, sind individuelle Schichtzeiten hinterlegt
+			//Wenn NewTprog keinen Wert hat und eigene Zeiten gef√ºllt sind, sind individuelle Schichtzeiten hinterlegt
 			if (oContext.getProperty("SubstTprog") === "****") {
 				this.toggleEnabledShiftInput(true);
 				oChbOwnShift.setSelected(true);
@@ -5952,7 +5952,7 @@ sap.ui.define([
 				oShiftSelect.setEnabled(true);
 				oSaveBtn.setEnabled(false);
 				oPanel.setBusy(false);
-				//Wenn weder NewTprog gef¸llt und keine eigenen Zeiten hinterlegt hat der MA keine Schichtvertretung
+				//Wenn weder NewTprog gef√ºllt und keine eigenen Zeiten hinterlegt hat der MA keine Schichtvertretung
 			} else {
 				this.toggleEnabledShiftInput(false);
 				oBeguzBreak1.setValue();
@@ -6098,7 +6098,7 @@ sap.ui.define([
 
 			var vVaria = this.getView().getModel().getProperty("Varia", oShiftSelect.getSelectedItem().getBindingContext());
 
-			//Pr¸fung: Wenn eigene Schichtzeit gew‰hlt aber keine Uhrzeiten eingetragen:
+			//Pr√ºfung: Wenn eigene Schichtzeit gew√§hlt aber keine Uhrzeiten eingetragen:
 			if (vOwnShift && (vBeguzShift === "" || vEnduzShift === "")) {
 				if (vBeguzShift === "") {
 					oBeguzShift.setValueState(sap.ui.core.ValueState.Error);
@@ -6108,7 +6108,7 @@ sap.ui.define([
 				}
 				oPanelShift.setBusy(false);
 
-				//Pr¸fung erfolgreich: Daten der eigenen Schichtzeit auslesen
+				//Pr√ºfung erfolgreich: Daten der eigenen Schichtzeit auslesen
 			} else {
 				if (vOwnShift === true) {
 					vSubstTprog = "****";
@@ -8204,8 +8204,8 @@ sap.ui.define([
 		},
 
 		discardUnsavedChanges: function (vUnitKey) {
-			//Pr¸fen ob das Model f¸r die Dropdown-Werte in der Planung Werte enth‰lt. 
-			//Wenn ja, muss eine Abfrage stattfinden: "Wollen Sie die ƒnderungen verwerfen?" -> Wenn ja, m¸ssen die ƒnderungen aus dem Model entfernt werden
+			//Pr√ºfen ob das Model f√ºr die Dropdown-Werte in der Planung Werte enth√§lt. 
+			//Wenn ja, muss eine Abfrage stattfinden: "Wollen Sie die √Ñnderungen verwerfen?" -> Wenn ja, m√ºssen die √Ñnderungen aus dem Model entfernt werden
 			// if (this.getView().getModel("CBData")) {
 			var oCBDataModel = this.getView().getModel("CBData");
 			var vDataUnitKey;
@@ -8596,11 +8596,11 @@ sap.ui.define([
 						if (vLineEmpId === vEmpId) {
 							oModel.oData.modelData.rows.splice(iId, 1);
 							oTable.getAggregation("rows").splice(iId, 1);
-							//counter wird hochgez‰hlt, um sp‰ter die den row count der Tabelle richtig zu berechnen
+							//counter wird hochgez√§hlt, um sp√§ter die den row count der Tabelle richtig zu berechnen
 							iDelCounter++;
 						} else {
-							//wir m¸ssen iId nur hochz‰hlen, wenn keine Zeile gelˆscht wurde. Wird id als Pointer verwendet
-							//zeigen wir nach dem Lˆschen eines Eintrags nicht mehr auf den richtigen im n‰chsten Durchgang
+							//wir m√ºssen iId nur hochz√§hlen, wenn keine Zeile gel√∂scht wurde. Wird id als Pointer verwendet
+							//zeigen wir nach dem L√∂schen eines Eintrags nicht mehr auf den richtigen im n√§chsten Durchgang
 							iId++;
 						}
 					}.bind(this));
@@ -9730,7 +9730,7 @@ sap.ui.define([
 			}
 
 			//09.04.2021 Change Anna Grigoran
-			//da "cal_timeframe" nicht verwendet wird und zu einem Bug f¸hrt, wird standardm‰ﬂig immer cal_interval verwendet 
+			//da "cal_timeframe" nicht verwendet wird und zu einem Bug f√ºhrt, wird standardm√§√üig immer cal_interval verwendet 
 			/*if (!oData.PlanVisCal) {
 				oCalendar = this.getView().byId("cal_timeframe");
 				oCalendar.setMonths(oData.PlanVisMonths);
@@ -9771,7 +9771,7 @@ sap.ui.define([
 			this.getView().byId("pnl_timeframe").setExpanded(true);
 
 			//09.04.2021 Change Anna Grigoran
-			//da "cal_timeframe" nicht verwendet wird und zu einem Bug f¸hrt, wird standardm‰ﬂig immer cal_interval verwendet 
+			//da "cal_timeframe" nicht verwendet wird und zu einem Bug f√ºhrt, wird standardm√§√üig immer cal_interval verwendet 
 			this.getView().byId("cal_interval").setVisible(true); //oData.PlanVisCal);
 			this.getView().byId("cal_timeframe").setVisible(false); //!oData.PlanVisCal);
 
@@ -10137,7 +10137,7 @@ sap.ui.define([
 				oBegda.setUTCDate(oBegda.getDate());
 				oEndda.setUTCDate(oEndda.getDate());
 			}
-			//Wenn nur das Begindatum gew‰hlt ist wollen wir keinen Aufruf ans Backend starten
+			//Wenn nur das Begindatum gew√§hlt ist wollen wir keinen Aufruf ans Backend starten
 			if (oBegda && oEndda) {
 				var oFilter = new sap.ui.model.Filter("PlanDate", sap.ui.model.FilterOperator.BT, oBegda, oEndda);
 				var oUnitFilter = new sap.ui.model.Filter("UnitKey", sap.ui.model.FilterOperator.EQ, vUnitKey);
@@ -10223,7 +10223,7 @@ sap.ui.define([
 							//use <br> tags for line breaks
 							//example:
 							// oDateLabel.setHtmlText("<p style='text-align:center;font-weight:bold;margin-block-start:0px;margin-block-end:0px'>" + aData[i].LabelText +
-							// 	"<br>" + "M¸nster Geist" + "<br>" + "Fr¸htermin" + "</p>"); //use <br> tags for line breaks
+							// 	"<br>" + "M√ºnster Geist" + "<br>" + "Fr√ºhtermin" + "</p>"); //use <br> tags for line breaks
 						}
 
 						var oTemplate;
@@ -10326,7 +10326,7 @@ sap.ui.define([
 									}
 								},
 								change: this.onCBSubmit.bind(this),
-								width: "5rem" // urspr¸nglich 4rem
+								width: "5rem" // urspr√ºnglich 4rem
 							});
 
 							this._oDataUtil.getItems(aData[i].FieldKey, vUnitKey, oTemplate).then(function (oResult) {
@@ -13029,7 +13029,7 @@ sap.ui.define([
 			});
 			aChilds.results.splice(vChildIndex, 1);
 
-			//24.03.2020 Wenn der letzte Datensatz eines Tages gelˆscht wurde, Tag entfernen und nachfolgende Tage nachr¸cken
+			//24.03.2020 Wenn der letzte Datensatz eines Tages gel√∂scht wurde, Tag entfernen und nachfolgende Tage nachr√ºcken
 			if (oEvent.getSource().getModel().getProperty(sNavProperty, oClickedLineContext).results.length === 0) {
 				var aDays = oEvent.getSource().getModel().getProperty("/demandDaySet");
 				var vDeletedDay = oEvent.getSource().getModel().getProperty("Daynr", oClickedLineContext);
@@ -13074,12 +13074,12 @@ sap.ui.define([
 				success: function (oData) {
 					var vTableDays = aRowBinding.length;
 					if (vTableDays !== 0) {
-						//¸ber TabellenTage r¸ckw‰rts loopen
+						//√ºber TabellenTage r√ºckw√§rts loopen
 						while (vTableDays--) {
-							//	¸ber oDataTage loopen
+							//	√ºber oDataTage loopen
 							var vODataDays = oData.results.length;
 							while (vODataDays--) {
-								//		Wenn Tagesschl¸ssel gleich
+								//		Wenn Tagesschl√ºssel gleich
 
 								var oRowDay = aRowBinding[vTableDays];
 								var oDataDay = oData.results[vODataDays];
@@ -13087,12 +13087,12 @@ sap.ui.define([
 								if (oRowDay.Daynr == oDataDay.Daynr && oRowDay.Id == oDataDay.Id) {
 									var vTableQuals = oRowDay.dayToDemand.results.length;
 
-									//			¸ber Tabellenbindings r¸ckw‰rts loopen
+									//			√ºber Tabellenbindings r√ºckw√§rts loopen
 									while (vTableQuals--) {
-										//				‹ber Odata r¸ckw‰rts loopen
+										//				√úber Odata r√ºckw√§rts loopen
 										var vODataQuals = oDataDay.dayToDemand.results.length;
 										while (vODataQuals--) {
-											//					Wenn in Odata gefunden mit dem Key -> aus odata lˆschen
+											//					Wenn in Odata gefunden mit dem Key -> aus odata l√∂schen
 
 											var oRowQual = oRowDay.dayToDemand.results[vTableQuals];
 											var oDataQual = oDataDay.dayToDemand.results[vODataQuals];
@@ -13102,17 +13102,17 @@ sap.ui.define([
 											}
 										}
 									}
-									//			¸ber Odata loopen
+									//			√ºber Odata loopen
 									for (var i = 0; i < oData.results[vODataDays].dayToDemand.results.length; i++) {
 										//				in Del Tabelle packen
 										aDelData.push(oData.results[vODataDays].dayToDemand.results[i]);
 									}
-									//			oDataTag lˆschen
+									//			oDataTag l√∂schen
 									oData.results.splice(vODataDays, 1);
 								}
 
 							}
-							//	TabellenTag lˆschen
+							//	TabellenTag l√∂schen
 							for (var m = 0; m < aRowBinding[vTableDays].dayToDemand.results.length; m++) {
 								aAddData.push(aRowBinding[vTableDays].dayToDemand.results[m]);
 							}
@@ -13121,14 +13121,14 @@ sap.ui.define([
 							}
 						}
 
-						//Fall abfangen, dass ganze Tage gelˆscht wurden
+						//Fall abfangen, dass ganze Tage gel√∂scht wurden
 						for (var l = 0; l < oData.results.length; l++) {
 							for (var n = 0; n < oData.results[l].dayToDemand.results.length; n++) {
 								aDelData.push(oData.results[l].dayToDemand.results[n]);
 							}
 						}
 
-						//hinzuzuf¸gende Daten ins oDataModel schreiben
+						//hinzuzuf√ºgende Daten ins oDataModel schreiben
 						for (var j = 0; j < aAddData.length; j++) {
 							var oCtxQual = oDataModel.createEntry("/demandDayDemandSet", {
 								properties: {

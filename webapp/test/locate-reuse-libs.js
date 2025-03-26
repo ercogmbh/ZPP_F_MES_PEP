@@ -40,7 +40,24 @@
                 }
             });
             return libOrCompKeysStringTmp;
-        }
+        };
+        function getComponentUsageNames(compUsages, libOrCompKeysString) {
+            var libOrCompKeysStringTmp = libOrCompKeysString;
+            var compNames = Object.keys(compUsages).map(function (compUsageKey) {
+                return compUsages[compUsageKey].name;
+            });
+            compNames.forEach(function (compName) {
+                // ignore libs or Components that start with SAPUI5 delivered namespaces
+                if (!ui5Libs.some(function (substring) { return compName === substring || compName.startsWith(substring + "."); })) {
+                    if (libOrCompKeysStringTmp.length > 0) {
+                        libOrCompKeysStringTmp = libOrCompKeysStringTmp + "," + compName;
+                    } else {
+                        libOrCompKeysStringTmp = compName;
+                    }
+                }
+            });
+            return libOrCompKeysStringTmp;
+        };
         return new Promise(function (resolve, reject) {
             $.ajax(url)
                 .done(function (manifest) {
@@ -60,7 +77,7 @@
                             manifest["sap.ui5"] &&
                             manifest["sap.ui5"].componentUsages
                         ) {
-                            result = getKeys(manifest["sap.ui5"].componentUsages, result);
+                            result = getComponentUsageNames(manifest["sap.ui5"].componentUsages, result);
                         }
                     }
                     resolve(result);
@@ -78,9 +95,9 @@
                     if (dependency.url && dependency.url.length > 0 && dependency.type === "UI5LIB") {
                         sap.ui.require(["sap/base/Log"], function (Log) {
                             Log.info("Registering Library " +
-                                dependency.componentId +
+                                encodeURI(dependency.componentId) +
                                 " from server " +
-                                dependency.url);
+                                encodeURI(dependency.url));
                         });
                         var compId = dependency.componentId.replace(/\./g, "/");
                         var config = {
@@ -93,7 +110,7 @@
                 });
             }
         });
-    }
+    };
     /**
      * Registers the module paths for dependencies of the given component.
      * @param {string} manifestPath The the path to the app manifest path
@@ -148,7 +165,7 @@ function registerSAPFonts() {
     //Registering to the icon pool
     IconPool.registerFont(bSuiteTheme);
     });
-}
+};
 
 /*eslint-disable sap-browser-api-warning, sap-no-dom-access*/
 var currentScript = document.getElementById("locate-reuse-libs");

@@ -117,7 +117,7 @@ sap.ui.define([
 				oBegda.setUTCDate(oBegda.getDate());
 				oEndda.setUTCDate(oEndda.getDate());
 			}
-			//Wenn nur das Begindatum gewählt ist wollen wir keinen Aufruf ans Backend starten
+			//Wenn nur das Begindatum gewÃ¤hlt ist wollen wir keinen Aufruf ans Backend starten
 			if (oBegda && oEndda) {
 				var oFilter = new sap.ui.model.Filter("PlanDate", sap.ui.model.FilterOperator.BT, oBegda, oEndda);
 				var oUnitFilter = new sap.ui.model.Filter("UnitKey", sap.ui.model.FilterOperator.EQ, this.vUnitKey);
@@ -446,7 +446,7 @@ sap.ui.define([
 					}
 
 					var oDate = new Date(aData[i].PlanDate);
-					//Für Mitarbeiterspalten, diese sind nicht ssbezogen, werden im Backend mit Highdate versorgt
+					//FÃ¼r Mitarbeiterspalten, diese sind nicht ssbezogen, werden im Backend mit Highdate versorgt
 					//Javascript Highdate ist wiederrum 8099 :) 
 					if (oDate.getYear() == "8099") {
 						vDate = "";

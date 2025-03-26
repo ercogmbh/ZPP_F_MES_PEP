@@ -14,13 +14,13 @@ builder:
       afterTask: generateCachebusterInfo
       configuration:
         target:
-          destination: S41
-          url: http://saps41.erco.com:8000/
+          destination: CVI
+          url: http://sapcvi.erco.com:8000/
           client: '110'
         app:
           name: ZHR_PEP_PLAN
           description: PE-Planung
           package: Z_FIORI
-          transport: S41K900165
+          transport: CVIK900153
         exclude:
           - /test/
